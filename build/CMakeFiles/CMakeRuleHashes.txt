@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+806edad9e17f449818dccf413432a360 AntivirusUSB_autogen/timestamp
+c7d572776ec284f22d140d617fb84e3e CMakeFiles/AntivirusUSB_autogen
+c7d572776ec284f22d140d617fb84e3e CMakeFiles/AntivirusUSB_autogen_timestamp_deps

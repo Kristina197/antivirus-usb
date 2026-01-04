@@ -1,0 +1,5 @@
+/home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB.dir
+/home/kristina/antivirus-usb/build/CMakeFiles/edit_cache.dir
+/home/kristina/antivirus-usb/build/CMakeFiles/rebuild_cache.dir
+/home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB_autogen_timestamp_deps.dir
+/home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB_autogen.dir
