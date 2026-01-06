@@ -23,8 +23,11 @@
  /home/kristina/antivirus-usb/src/ui/MainWindow.cpp
  /home/kristina/antivirus-usb/src/ui/MainWindow.h
  /home/kristina/antivirus-usb/src/ui/MainWindow.ui
+ /home/kristina/antivirus-usb/src/ui/ScanWorker.h
  /home/kristina/antivirus-usb/src/usecases/IUsbMonitor.h
  /home/kristina/antivirus-usb/src/usecases/IVirusScanner.h
+ /home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp
+ /home/kristina/antivirus-usb/src/usecases/QuarantineManager.h
  /home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp
  /home/kristina/antivirus-usb/src/usecases/UsbMonitor.h
  /home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp
@@ -163,6 +166,7 @@
  /usr/include/c++/13/ext/string_conversions.h
  /usr/include/c++/13/ext/type_traits.h
  /usr/include/c++/13/functional
+ /usr/include/c++/13/future
  /usr/include/c++/13/initializer_list
  /usr/include/c++/13/ios
  /usr/include/c++/13/iosfwd
@@ -313,6 +317,8 @@
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
  /usr/include/x86_64-linux-gnu/gnu/stubs.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h
@@ -338,7 +344,9 @@
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainertools_impl.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h
@@ -392,6 +400,7 @@
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcore-config.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreexports.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h

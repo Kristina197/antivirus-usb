@@ -345,8 +345,23 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
+ /usr/include/c++/13/future /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/c++/13/condition_variable \
+ /usr/include/c++/13/bits/atomic_futex.h \
+ /usr/include/c++/13/bits/std_thread.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IVirusScanner.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/ScanResult.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IUsbMonitor.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/DeviceInfo.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../interfaces/IDeviceRepository.h
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/QuarantineManager.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../interfaces/IDeviceRepository.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_ScanWorker.cpp \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/ScanWorker.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h

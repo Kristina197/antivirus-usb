@@ -22,8 +22,11 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
   /home/kristina/antivirus-usb/src/ui/MainWindow.cpp \
   /home/kristina/antivirus-usb/src/ui/MainWindow.h \
   /home/kristina/antivirus-usb/src/ui/MainWindow.ui \
+  /home/kristina/antivirus-usb/src/ui/ScanWorker.h \
   /home/kristina/antivirus-usb/src/usecases/IUsbMonitor.h \
   /home/kristina/antivirus-usb/src/usecases/IVirusScanner.h \
+  /home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp \
+  /home/kristina/antivirus-usb/src/usecases/QuarantineManager.h \
   /home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp \
   /home/kristina/antivirus-usb/src/usecases/UsbMonitor.h \
   /home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp \
@@ -162,6 +165,7 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/functional \
+  /usr/include/c++/13/future \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
@@ -312,6 +316,8 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -337,7 +343,9 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainertools_impl.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h \
@@ -391,6 +399,7 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcore-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
@@ -737,9 +746,21 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:
 
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+/usr/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
 
-/usr/include/x86_64-linux-gnu/bits/timex.h:
+/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake:
+
+/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp:
+
+/usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-none.cmake:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
 
 /usr/include/time.h:
 
@@ -764,14 +785,6 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 /usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/13/tr1/riemann_zeta.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayalgorithms.h:
 
@@ -927,6 +940,12 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/include/c++/13/compare:
 
+/usr/include/c++/13/future:
+
+/usr/include/c++/13/string:
+
+/usr/include/features.h:
+
 /usr/include/c++/13/chrono:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-least.h:
@@ -963,15 +982,9 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsystemdetection.h:
 
-/usr/include/c++/13/typeinfo:
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
-/usr/include/c++/13/cctype:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsVersionlessTargets.cmake:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
+/usr/include/c++/13/bits/stl_vector.h:
 
 /usr/include/c++/13/bits/c++0x_warning.h:
 
@@ -997,15 +1010,15 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/include/c++/13/backward/auto_ptr.h:
 
+/usr/include/alloca.h:
+
+/home/kristina/antivirus-usb/src/ui/MainWindow.h:
+
+/home/kristina/antivirus-usb/src/repositories/SignatureRepository.h:
+
 /home/kristina/antivirus-usb/src/interfaces/IDeviceRepository.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h:
-
-/usr/include/c++/13/bits/functional_hash.h:
-
-/home/kristina/antivirus-usb/src/usecases/IVirusScanner.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
@@ -1013,13 +1026,13 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/include/linux/limits.h:
 
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsTargets-none.cmake:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusConfigVersion.cmake:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
-/usr/include/c++/13/bits/stl_vector.h:
 
 /usr/include/c++/13/array:
 
@@ -1029,7 +1042,21 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.cpp:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h:
+
+/usr/include/c++/13/bits/functional_hash.h:
+
+/home/kristina/antivirus-usb/src/usecases/IVirusScanner.h:
+
+/home/kristina/antivirus-usb/src/ui/ScanWorker.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
 /usr/include/c++/13/bits/unique_ptr.h:
+
+/usr/bin/cmake:
+
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/c++/13/bits/char_traits.h:
 
@@ -1077,6 +1104,12 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/include/c++/13/bits/basic_ios.tcc:
 
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/c++/13/bits/stl_heap.h:
@@ -1084,10 +1117,6 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 /usr/include/syscall.h:
 
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake:
-
-/home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp:
 
 /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake:
 
@@ -1115,11 +1144,7 @@ AntivirusUSB_autogen/timestamp: /home/kristina/antivirus-usb/CMakeLists.txt \
 
 /usr/include/c++/13/bits/std_abs.h:
 
-/home/kristina/antivirus-usb/CMakeLists.txt:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreConfigExtras.cmake:
-
-CMakeFiles/3.28.3/CMakeSystem.cmake:
+/home/kristina/antivirus-usb/src/usecases/QuarantineManager.h:
 
 /home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.h:
 
@@ -1135,33 +1160,15 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h:
 
-/home/kristina/antivirus-usb/src/ui/MainWindow.h:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/alloca.h:
-
 /home/kristina/antivirus-usb/src/repositories/DeviceRepository.cpp:
 
 /usr/include/c++/13/bits/ranges_algobase.h:
 
-/usr/include/c++/13/string:
+/home/kristina/antivirus-usb/CMakeLists.txt:
 
-/usr/include/features.h:
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreConfigExtras.cmake:
 
-/home/kristina/antivirus-usb/src/repositories/SignatureRepository.h:
-
-/usr/include/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/c++/13/streambuf:
-
-/usr/include/c++/13/pstl/glue_memory_defs.h:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/bits/exception.h:
+CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake:
 
@@ -1177,6 +1184,26 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/include/c++/13/cstdint:
 
+/usr/include/c++/13/typeinfo:
+
+/usr/include/c++/13/cctype:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsVersionlessTargets.cmake:
+
+/usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/pstl/glue_memory_defs.h:
+
+/usr/include/c++/13/bits/memory_resource.h:
+
+/usr/include/c++/13/bits/exception.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake:
+
+/home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp:
+
 /usr/include/c++/13/bits/ranges_cmp.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
@@ -1190,10 +1217,6 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 /usr/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/bin/cmake:
 
 /usr/include/c++/13/bits/stl_multimap.h:
 
@@ -1249,6 +1272,8 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusTargets-none.cmake:
 
+/usr/include/c++/13/bits/max_size_type.h:
+
 /usr/include/c++/13/debug/debug.h:
 
 /usr/include/c++/13/bits/stl_list.h:
@@ -1297,10 +1322,6 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicWalkLibsHelpers.cmake:
 
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h:
-
 /usr/include/c++/13/bits/shared_ptr.h:
 
 /usr/include/c++/13/bits/shared_ptr_atomic.h:
@@ -1333,8 +1354,6 @@ AntivirusUSB_autogen/moc_predefs.h:
 
 /usr/include/c++/13/bits/std_mutex.h:
 
-/usr/share/cmake-3.28/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
-
 /usr/include/c++/13/bits/stl_construct.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qchar.h:
@@ -1363,11 +1382,25 @@ AntivirusUSB_autogen/moc_predefs.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiTargets.cmake:
 
-/usr/include/c++/13/bits/max_size_type.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsTargets-none.cmake:
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h:
 
 /usr/include/x86_64-linux-gnu/bits/syscall.h:
 
@@ -1384,8 +1417,6 @@ AntivirusUSB_autogen/moc_predefs.h:
 /usr/include/c++/13/bits/basic_string.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
@@ -1428,8 +1459,6 @@ AntivirusUSB_autogen/moc_predefs.h:
 /usr/include/c++/13/bits/align.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h:
-
-/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake:
 
 /usr/include/c++/13/tr1/poly_hermite.tcc:
 
@@ -1509,6 +1538,12 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QObject:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6/3rdparty/kwin/FindXKB.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QThread:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearraylist.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h:
@@ -1562,6 +1597,8 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h:
 
 /usr/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake:
 
@@ -1677,6 +1714,8 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/include/c++/13/bits/algorithmfwd.h:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake:
@@ -1713,8 +1752,6 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-none.cmake:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h:
@@ -1728,8 +1765,6 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6/3rdparty/kwin/FindXKB.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/FindWrapOpenGL.cmake:
 
@@ -1748,6 +1783,8 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6Targets.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtFeature.cmake:
+
+/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtFeatureCommon.cmake:
 
@@ -1876,13 +1913,3 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake:
-
-/usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in:
-
-/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp:

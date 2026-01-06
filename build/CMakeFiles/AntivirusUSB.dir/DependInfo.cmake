@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kristina/antivirus-usb/src/repositories/DeviceRepository.cpp" "CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o.d"
   "/home/kristina/antivirus-usb/src/repositories/SignatureRepository.cpp" "CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o.d"
   "/home/kristina/antivirus-usb/src/ui/MainWindow.cpp" "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o.d"
+  "/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp" "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o.d"
   "/home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp" "CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o.d"
   "/home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp" "CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o.d"
   )

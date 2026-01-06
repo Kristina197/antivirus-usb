@@ -311,6 +311,12 @@
 			null
 		],
 		[
+			"/home/kristina/antivirus-usb/src/ui/ScanWorker.h",
+			"MU",
+			"YPKJ5OE7LN/moc_ScanWorker.cpp",
+			null
+		],
+		[
 			"/home/kristina/antivirus-usb/src/usecases/IUsbMonitor.h",
 			"MU",
 			"HF2ZXR2YJA/moc_IUsbMonitor.cpp",
@@ -320,6 +326,12 @@
 			"/home/kristina/antivirus-usb/src/usecases/IVirusScanner.h",
 			"MU",
 			"HF2ZXR2YJA/moc_IVirusScanner.cpp",
+			null
+		],
+		[
+			"/home/kristina/antivirus-usb/src/usecases/QuarantineManager.h",
+			"MU",
+			"HF2ZXR2YJA/moc_QuarantineManager.cpp",
 			null
 		],
 		[
@@ -423,6 +435,11 @@
 			null
 		],
 		[ "/home/kristina/antivirus-usb/src/ui/MainWindow.cpp", "MU", null ],
+		[
+			"/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp",
 			"MU",

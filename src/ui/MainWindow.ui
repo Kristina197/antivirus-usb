@@ -2,17 +2,152 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry"><rect><x>0</x><y>0</y><width>800</width><height>600</height></rect></property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>USB Antivirus Scanner</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
-    <item><widget class="QLabel" name="label"><property name="text"><string>USB Antivirus Scanner</string></property><property name="alignment"><set>Qt::AlignCenter</set></property><property name="font"><font><pointsize>16</pointsize><bold>true</bold></font></property></widget></item>
-    <item><widget class="QGroupBox" name="groupBox"><property name="title"><string>Connected USB Devices</string></property><layout class="QVBoxLayout" name="verticalLayout_2"><item><widget class="QListWidget" name="deviceList"/></item><item><layout class="QHBoxLayout" name="horizontalLayout"><item><widget class="QPushButton" name="refreshButton"><property name="text"><string>Refresh</string></property></widget></item><item><widget class="QPushButton" name="scanButton"><property name="text"><string>Scan Selected Device</string></property></widget></item></layout></item></layout></widget></item>
-    <item><widget class="QProgressBar" name="progressBar"><property name="value"><number>0</number></property></widget></item>
-    <item><widget class="QGroupBox" name="groupBox_2"><property name="title"><string>Scan Results</string></property><layout class="QVBoxLayout" name="verticalLayout_3"><item><widget class="QTableWidget" name="resultsTable"/></item></layout></widget></item>
-    <item><widget class="QGroupBox" name="groupBox_3"><property name="title"><string>Activity Log</string></property><layout class="QVBoxLayout" name="verticalLayout_4"><item><widget class="QTextEdit" name="logText"><property name="readOnly"><bool>true</bool></property></widget></item></layout></widget></item>
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="text">
+       <string>USB Antivirus Scanner v2.0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="devicesGroup">
+      <property name="title">
+       <string>Connected USB Devices</string>
+      </property>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QListWidget" name="deviceList"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="refreshButton">
+           <property name="text">
+            <string>Refresh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="scanButton">
+           <property name="text">
+            <string>Scan Selected Device</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="resultsGroup">
+      <property name="title">
+       <string>Scan Results</string>
+      </property>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QTableWidget" name="resultsTable">
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QPushButton" name="quarantineSelectedButton">
+           <property name="text">
+            <string>Quarantine Selected</string>
+           </property>
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clearResultsButton">
+           <property name="text">
+            <string>Clear Results</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="logGroup">
+      <property name="title">
+       <string>Activity Log</string>
+      </property>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QTextEdit" name="logText">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar"><property name="geometry"><rect><x>0</x><y>0</y><width>800</width><height>21</height></rect></property></widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <resources/>
+ <connections/>
 </ui>

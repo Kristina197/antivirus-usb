@@ -323,6 +323,30 @@ src/ui/MainWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.s
 .PHONY : src/ui/MainWindow.cpp.s
 
+src/usecases/QuarantineManager.o: src/usecases/QuarantineManager.cpp.o
+.PHONY : src/usecases/QuarantineManager.o
+
+# target to build an object file
+src/usecases/QuarantineManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o
+.PHONY : src/usecases/QuarantineManager.cpp.o
+
+src/usecases/QuarantineManager.i: src/usecases/QuarantineManager.cpp.i
+.PHONY : src/usecases/QuarantineManager.i
+
+# target to preprocess a source file
+src/usecases/QuarantineManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.i
+.PHONY : src/usecases/QuarantineManager.cpp.i
+
+src/usecases/QuarantineManager.s: src/usecases/QuarantineManager.cpp.s
+.PHONY : src/usecases/QuarantineManager.s
+
+# target to generate assembly for a file
+src/usecases/QuarantineManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.s
+.PHONY : src/usecases/QuarantineManager.cpp.s
+
 src/usecases/UsbMonitor.o: src/usecases/UsbMonitor.cpp.o
 .PHONY : src/usecases/UsbMonitor.o
 
@@ -403,6 +427,9 @@ help:
 	@echo "... src/ui/MainWindow.o"
 	@echo "... src/ui/MainWindow.i"
 	@echo "... src/ui/MainWindow.s"
+	@echo "... src/usecases/QuarantineManager.o"
+	@echo "... src/usecases/QuarantineManager.i"
+	@echo "... src/usecases/QuarantineManager.s"
 	@echo "... src/usecases/UsbMonitor.o"
 	@echo "... src/usecases/UsbMonitor.i"
 	@echo "... src/usecases/UsbMonitor.s"
