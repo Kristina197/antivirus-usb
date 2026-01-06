@@ -311,6 +311,18 @@
 			null
 		],
 		[
+			"/home/kristina/antivirus-usb/src/ui/QuarantineDialog.h",
+			"MU",
+			"YPKJ5OE7LN/moc_QuarantineDialog.cpp",
+			null
+		],
+		[
+			"/home/kristina/antivirus-usb/src/ui/RestoreWorker.h",
+			"MU",
+			"YPKJ5OE7LN/moc_RestoreWorker.cpp",
+			null
+		],
+		[
 			"/home/kristina/antivirus-usb/src/ui/ScanWorker.h",
 			"MU",
 			"YPKJ5OE7LN/moc_ScanWorker.cpp",
@@ -435,6 +447,11 @@
 			null
 		],
 		[ "/home/kristina/antivirus-usb/src/ui/MainWindow.cpp", "MU", null ],
+		[
+			"/home/kristina/antivirus-usb/src/ui/QuarantineDialog.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp",
 			"MU",

@@ -20,6 +20,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o.d"
   "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o"
   "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o.d"
+  "CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o"
+  "CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o.d"
   "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o"
   "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o.d"
   "CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o"
