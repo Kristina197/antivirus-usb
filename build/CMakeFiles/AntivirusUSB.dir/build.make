@@ -76,10 +76,18 @@ AntivirusUSB_autogen/timestamp: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
 	/usr/bin/cmake -E cmake_autogen /home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB_autogen.dir/AutogenInfo.json ""
 	/usr/bin/cmake -E touch /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/timestamp
 
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp: resources.qrc
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp: CMakeFiles/AntivirusUSB_autogen.dir/AutoRcc_resources_JU62CA5L7X_Info.json
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp: resources/shield-infected.jpg
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp: resources/shield-clean.jpg
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp: /usr/lib/qt6/libexec/rcc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources.qrc"
+	/usr/bin/cmake -E cmake_autorcc /home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB_autogen.dir/AutoRcc_resources_JU62CA5L7X_Info.json 
+
 CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: AntivirusUSB_autogen/mocs_compilation.cpp
 CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o -MF CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o -c /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/mocs_compilation.cpp
 
 CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.i: cmake_force
@@ -93,7 +101,7 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.s: cmake_f
 CMakeFiles/AntivirusUSB.dir/src/main.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/main.cpp.o: /home/kristina/antivirus-usb/src/main.cpp
 CMakeFiles/AntivirusUSB.dir/src/main.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/main.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/main.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/main.cpp.o -c /home/kristina/antivirus-usb/src/main.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/main.cpp.i: cmake_force
@@ -104,10 +112,24 @@ CMakeFiles/AntivirusUSB.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AntivirusUSB.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristina/antivirus-usb/src/main.cpp -o CMakeFiles/AntivirusUSB.dir/src/main.cpp.s
 
+CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
+CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o: /home/kristina/antivirus-usb/src/entities/ScanConfig.cpp
+CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o -c /home/kristina/antivirus-usb/src/entities/ScanConfig.cpp
+
+CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristina/antivirus-usb/src/entities/ScanConfig.cpp > CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.i
+
+CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristina/antivirus-usb/src/entities/ScanConfig.cpp -o CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.s
+
 CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o: /home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp
 CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o -c /home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.i: cmake_force
@@ -121,7 +143,7 @@ CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.s: cmake_force
 CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o: /home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp
 CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o -c /home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.i: cmake_force
@@ -135,7 +157,7 @@ CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.s: cmake_force
 CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o: /home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp
 CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o -c /home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.i: cmake_force
@@ -149,7 +171,7 @@ CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.s: cmake_force
 CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o: /home/kristina/antivirus-usb/src/repositories/SignatureRepository.cpp
 CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o -c /home/kristina/antivirus-usb/src/repositories/SignatureRepository.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.i: cmake_force
@@ -163,7 +185,7 @@ CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.s: cmake_fo
 CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o: /home/kristina/antivirus-usb/src/repositories/DeviceRepository.cpp
 CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.o -c /home/kristina/antivirus-usb/src/repositories/DeviceRepository.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.i: cmake_force
@@ -177,7 +199,7 @@ CMakeFiles/AntivirusUSB.dir/src/repositories/DeviceRepository.cpp.s: cmake_force
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o: /home/kristina/antivirus-usb/src/infrastructure/SqlQueryLoader.cpp
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o -c /home/kristina/antivirus-usb/src/infrastructure/SqlQueryLoader.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.i: cmake_force
@@ -191,7 +213,7 @@ CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.s: cmake_force
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o: /home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.cpp
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o -c /home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.i: cmake_force
@@ -205,7 +227,7 @@ CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.s: cmake_f
 CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o: /home/kristina/antivirus-usb/src/ui/MainWindow.cpp
 CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o -c /home/kristina/antivirus-usb/src/ui/MainWindow.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.i: cmake_force
@@ -219,7 +241,7 @@ CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.s: cmake_force
 CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
 CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o: /home/kristina/antivirus-usb/src/ui/QuarantineDialog.cpp
 CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o -c /home/kristina/antivirus-usb/src/ui/QuarantineDialog.cpp
 
 CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.i: cmake_force
@@ -230,10 +252,39 @@ CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristina/antivirus-usb/src/ui/QuarantineDialog.cpp -o CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.s
 
+CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
+CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp
+CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o -MF CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o -c /home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp
+
+CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp > CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.i
+
+CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp -o CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.s
+
+CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o: CMakeFiles/AntivirusUSB.dir/flags.make
+CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o: AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp
+CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o: CMakeFiles/AntivirusUSB.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o -MF CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o.d -o CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o -c /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp
+
+CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp > CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i
+
+CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp -o CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s
+
 # Object files for target AntivirusUSB
 AntivirusUSB_OBJECTS = \
 "CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/AntivirusUSB.dir/src/main.cpp.o" \
+"CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o" \
 "CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o" \
 "CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o" \
 "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o" \
@@ -242,13 +293,16 @@ AntivirusUSB_OBJECTS = \
 "CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o" \
 "CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o" \
 "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o" \
-"CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o"
+"CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o" \
+"CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o" \
+"CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o"
 
 # External object files for target AntivirusUSB
 AntivirusUSB_EXTERNAL_OBJECTS =
 
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/main.cpp.o
+AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o
@@ -258,6 +312,8 @@ AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o
+AntivirusUSB: CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o
+AntivirusUSB: CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/build.make
 AntivirusUSB: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 AntivirusUSB: /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2
@@ -266,7 +322,7 @@ AntivirusUSB: /usr/lib/x86_64-linux-gnu/libGLX.so
 AntivirusUSB: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 AntivirusUSB: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 AntivirusUSB: CMakeFiles/AntivirusUSB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable AntivirusUSB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kristina/antivirus-usb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable AntivirusUSB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AntivirusUSB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -277,6 +333,7 @@ CMakeFiles/AntivirusUSB.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/AntivirusUSB.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/AntivirusUSB.dir/clean
 
+CMakeFiles/AntivirusUSB.dir/depend: AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp
 CMakeFiles/AntivirusUSB.dir/depend: AntivirusUSB_autogen/timestamp
 	cd /home/kristina/antivirus-usb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kristina/antivirus-usb /home/kristina/antivirus-usb /home/kristina/antivirus-usb/build /home/kristina/antivirus-usb/build /home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/AntivirusUSB.dir/depend

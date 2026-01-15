@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/shield-clean.jpg</file>
+        <file>resources/shield-infected.jpg</file>
+        <file></file>
+    </qresource>
+</RCC>

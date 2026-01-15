@@ -243,7 +243,8 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPkgConfig.cmake",
 		"/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake",
-		"/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake"
+		"/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake",
+		"/home/kristina/antivirus-usb/build/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/kristina/antivirus-usb",
 	"DEP_FILE" : "/home/kristina/antivirus-usb/build/AntivirusUSB_autogen/deps",
@@ -254,6 +255,12 @@
 			"/home/kristina/antivirus-usb/src/entities/DeviceInfo.h",
 			"MU",
 			"IEUNVJTDNW/moc_DeviceInfo.cpp",
+			null
+		],
+		[
+			"/home/kristina/antivirus-usb/src/entities/ScanConfig.h",
+			"MU",
+			"IEUNVJTDNW/moc_ScanConfig.cpp",
 			null
 		],
 		[
@@ -323,9 +330,21 @@
 			null
 		],
 		[
+			"/home/kristina/antivirus-usb/src/ui/ResultDialog.h",
+			"MU",
+			"YPKJ5OE7LN/moc_ResultDialog.cpp",
+			null
+		],
+		[
 			"/home/kristina/antivirus-usb/src/ui/ScanWorker.h",
 			"MU",
 			"YPKJ5OE7LN/moc_ScanWorker.cpp",
+			null
+		],
+		[
+			"/home/kristina/antivirus-usb/src/ui/SettingsDialog.h",
+			"MU",
+			"YPKJ5OE7LN/moc_SettingsDialog.cpp",
 			null
 		],
 		[
@@ -426,6 +445,11 @@
 	"SOURCES" : 
 	[
 		[
+			"/home/kristina/antivirus-usb/src/entities/ScanConfig.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.cpp",
 			"MU",
 			null
@@ -452,6 +476,7 @@
 			"MU",
 			null
 		],
+		[ "/home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp", "MU", null ],
 		[
 			"/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp",
 			"MU",

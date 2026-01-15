@@ -1,263 +1,265 @@
 #include "MainWindow.h"
-#include "./ui_MainWindow.h"
+#include "ui_MainWindow.h"
 #include "ScanWorker.h"
+#include "QuarantineDialog.h"
+#include "SettingsDialog.h"
+#include "ResultDialog.h"
 #include <QMessageBox>
-#include <QDateTime>
-#include <QTableWidgetItem>
+#include <QPushButton>
 #include <QThread>
+#include <QDateTime>
+#include <QFileInfo>
+#include <QDebug>
 
-MainWindow::MainWindow(std::shared_ptr<IVirusScanner> scanner,
+MainWindow::MainWindow(std::shared_ptr<VirusScanner> scanner,
                        std::shared_ptr<IUsbMonitor> usbMonitor,
                        std::shared_ptr<IDeviceRepository> deviceRepo,
                        std::shared_ptr<QuarantineManager> quarantineManager,
                        QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), 
-      scanner_(scanner), usbMonitor_(usbMonitor), deviceRepo_(deviceRepo),
-      quarantineManager_(quarantineManager), scanThread_(nullptr) {
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+    , scanner_(scanner)
+    , usbMonitor_(usbMonitor)
+    , deviceRepo_(deviceRepo)
+    , quarantineManager_(quarantineManager)
+    , scanThread_(nullptr)
+{
     ui->setupUi(this);
-    setWindowTitle("USB Antivirus Scanner v2.0");
+    setWindowTitle("USB Антивирус");
     
-    ui->resultsTable->setColumnCount(3);
-    ui->resultsTable->setHorizontalHeaderLabels({"File Path", "Virus Name", "Severity"});
-    ui->resultsTable->horizontalHeader()->setStretchLastSection(true);
-    ui->resultsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->resultsTable->setSelectionMode(QAbstractItemView::MultiSelection);
+    ui->scanButton->setText("Сканировать выбранное устройство");
+    ui->settingsButton->setText("⚙️ Настройки");
+    ui->quarantineButton->setText("📁 Карантин");
     
     setupConnections();
+    setupDeviceTable();
+    setupResultsTable();
     
-    if (scanner_->loadSignatures()) {
-        addLogMessage("Signatures loaded successfully");
-    } else {
-        addLogMessage("Warning: No signatures loaded");
-    }
+    ui->statusLabel->setText("Готов. Ожидание USB устройств...");
+    ui->progressBar->setVisible(false);
     
-    updateDeviceList();
-    
-    usbMonitor_->setOnDeviceConnectedCallback([this](const DeviceInfo& device) {
-        QMetaObject::invokeMethod(this, [this, device]() {
-            onDeviceConnected(device);
-        }, Qt::QueuedConnection);
-    });
-    
-    usbMonitor_->startMonitoring();
-    
-    refreshTimer_ = new QTimer(this);
-    connect(refreshTimer_, &QTimer::timeout, this, &MainWindow::updateDeviceList);
-    refreshTimer_->start(5000);
+    qDebug() << "✓ MainWindow initialized";
 }
 
 MainWindow::~MainWindow() {
     if (scanThread_ && scanThread_->isRunning()) {
         scanThread_->quit();
-        scanThread_->wait(3000);
+        scanThread_->wait();
     }
-    usbMonitor_->stopMonitoring();
     delete ui;
 }
 
 void MainWindow::setupConnections() {
-    connect(ui->scanButton, &QPushButton::clicked, this, &MainWindow::onScanButtonClicked);
-    connect(ui->refreshButton, &QPushButton::clicked, this, &MainWindow::onRefreshDevicesClicked);
-    connect(ui->quarantineSelectedButton, &QPushButton::clicked, this, &MainWindow::onQuarantineSelectedClicked);
-    connect(ui->clearResultsButton, &QPushButton::clicked, this, &MainWindow::onClearResultsClicked);
-    connect(ui->resultsTable, &QTableWidget::itemSelectionChanged, this, &MainWindow::onResultsTableSelectionChanged);
+    connect(usbMonitor_.get(), &IUsbMonitor::deviceConnected, 
+            this, &MainWindow::onDeviceConnected);
+    connect(usbMonitor_.get(), &IUsbMonitor::deviceDisconnected, 
+            this, &MainWindow::onDeviceDisconnected);
+    
+    connect(ui->scanButton, &QPushButton::clicked, 
+            this, &MainWindow::onScanButtonClicked);
+    connect(ui->quarantineButton, &QPushButton::clicked, 
+            this, &MainWindow::onQuarantineButtonClicked);
+    connect(ui->settingsButton, &QPushButton::clicked, 
+            this, &MainWindow::onSettingsButtonClicked);
+    
+    usbMonitor_->startMonitoring();
 }
 
-void MainWindow::updateDeviceList() {
-    ui->deviceList->clear();
-    auto devices = usbMonitor_->getConnectedDevices();
-    
-    for (const auto& device : devices) {
-        QString itemText = QString::fromStdString(device.deviceName + " (" + device.mountPoint + ")");
-        ui->deviceList->addItem(itemText);
-    }
-    
-    if (devices.empty()) {
-        ui->deviceList->addItem("No USB devices detected");
-    }
+void MainWindow::setupDeviceTable() {
+    ui->deviceTable->setColumnCount(4);
+    ui->deviceTable->setHorizontalHeaderLabels({"Устройство", "Путь монтирования", "Статус", "Последнее сканирование"});
+    ui->deviceTable->horizontalHeader()->setStretchLastSection(true);
+    ui->deviceTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->deviceTable->setSelectionMode(QAbstractItemView::SingleSelection);
 }
 
-void MainWindow::onScanButtonClicked() {
-    if (scanThread_ && scanThread_->isRunning()) {
-        QMessageBox::warning(this, "Scan in Progress", "A scan is already running. Please wait.");
-        return;
-    }
-    
-    auto selectedItems = ui->deviceList->selectedItems();
-    if (selectedItems.isEmpty()) {
-        QMessageBox::warning(this, "Warning", "Please select a device to scan");
-        return;
-    }
-    
-    QString deviceText = selectedItems[0]->text();
-    if (deviceText == "No USB devices detected") return;
-    
-    int start = deviceText.indexOf('(') + 1;
-    int end = deviceText.indexOf(')');
-    QString mountPoint = deviceText.mid(start, end - start);
-    
-    DeviceInfo device("", mountPoint.toStdString());
-    scanDevice(device);
-}
-
-void MainWindow::onRefreshDevicesClicked() {
-    updateDeviceList();
-    addLogMessage("Device list refreshed");
+void MainWindow::setupResultsTable() {
+    ui->resultsTable->setColumnCount(3);
+    ui->resultsTable->setHorizontalHeaderLabels({"Путь к файлу", "Статус", "Название вируса"});
+    ui->resultsTable->horizontalHeader()->setStretchLastSection(true);
+    ui->resultsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 void MainWindow::onDeviceConnected(const DeviceInfo& device) {
-    QString msg = QString("USB device connected: %1").arg(QString::fromStdString(device.mountPoint));
-    addLogMessage(msg);
-    updateDeviceList();
+    qDebug() << "Device connected:" << QString::fromStdString(device.deviceName);
+    
+    int row = ui->deviceTable->rowCount();
+    ui->deviceTable->insertRow(row);
+    ui->deviceTable->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(device.deviceName)));
+    ui->deviceTable->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(device.mountPoint)));
+    ui->deviceTable->setItem(row, 2, new QTableWidgetItem("Подключено"));
+    ui->deviceTable->setItem(row, 3, new QTableWidgetItem("Не сканировалось"));
+    
+    ui->statusLabel->setText(QString("USB устройство подключено: %1").arg(QString::fromStdString(device.deviceName)));
     
     QMessageBox::StandardButton reply = QMessageBox::question(
-        this, "Auto Scan", "USB device detected. Scan now?",
-        QMessageBox::Yes | QMessageBox::No);
+        this, "USB устройство обнаружено",
+        QString("USB устройство '%1' было подключено.\nХотите просканировать его сейчас?")
+            .arg(QString::fromStdString(device.deviceName)),
+        QMessageBox::Yes | QMessageBox::No
+    );
+    
     if (reply == QMessageBox::Yes) {
         scanDevice(device);
     }
 }
 
-void MainWindow::onQuarantineSelectedClicked() {
-    auto selectedRows = ui->resultsTable->selectionModel()->selectedRows();
+void MainWindow::onDeviceDisconnected(const DeviceInfo& device) {
+    qDebug() << "Device disconnected:" << QString::fromStdString(device.deviceName);
     
-    if (selectedRows.isEmpty()) {
-        QMessageBox::warning(this, "No Selection", "Please select files to quarantine");
-        return;
-    }
-    
-    QString message = QString("Quarantine %1 selected file(s)?\n\n"
-                             "Files will be moved to quarantine folder.")
-                     .arg(selectedRows.count());
-    
-    QMessageBox::StandardButton reply = QMessageBox::question(
-        this, "Confirm Quarantine", message,
-        QMessageBox::Yes | QMessageBox::No);
-    
-    if (reply != QMessageBox::Yes) {
-        return;
-    }
-    
-    int quarantined = 0;
-    int failed = 0;
-    
-    // Сортируем строки в обратном порядке для правильного удаления
-    QList<int> rowsToRemove;
-    for (const auto& index : selectedRows) {
-        rowsToRemove.append(index.row());
-    }
-    std::sort(rowsToRemove.begin(), rowsToRemove.end(), std::greater<int>());
-    
-    for (int row : rowsToRemove) {
-        QString filePath = ui->resultsTable->item(row, 0)->text();
-        QString virusName = ui->resultsTable->item(row, 1)->text();
-        
-        if (quarantineManager_->quarantineFile(filePath.toStdString(), virusName.toStdString())) {
-            quarantined++;
-            addLogMessage(QString("✓ Quarantined: %1").arg(filePath));
-            ui->resultsTable->removeRow(row);
-        } else {
-            failed++;
-            addLogMessage(QString("✗ Failed to quarantine: %1").arg(filePath));
+    for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
+        if (ui->deviceTable->item(row, 1)->text().toStdString() == device.mountPoint) {
+            ui->deviceTable->removeRow(row);
+            break;
         }
     }
     
-    QString summary = QString("Quarantine complete:\n✓ Success: %1\n✗ Failed: %2")
-                     .arg(quarantined).arg(failed);
-    QMessageBox::information(this, "Quarantine Complete", summary);
-    
-    // Отключаем кнопку если таблица пуста
-    if (ui->resultsTable->rowCount() == 0) {
-        ui->quarantineSelectedButton->setEnabled(false);
-    }
+    ui->statusLabel->setText(QString("USB устройство отключено: %1").arg(QString::fromStdString(device.deviceName)));
 }
 
-void MainWindow::onClearResultsClicked() {
-    if (ui->resultsTable->rowCount() == 0) {
+void MainWindow::onScanButtonClicked() {
+    int currentRow = ui->deviceTable->currentRow();
+    if (currentRow < 0) {
+        QMessageBox::warning(this, "Не выбрано устройство", "Пожалуйста, выберите устройство для сканирования.");
         return;
     }
     
-    QMessageBox::StandardButton reply = QMessageBox::question(
-        this, "Clear Results", 
-        "Clear all scan results from table?\n(Files will NOT be quarantined)",
-        QMessageBox::Yes | QMessageBox::No);
+    DeviceInfo device;
+    device.deviceName = ui->deviceTable->item(currentRow, 0)->text().toStdString();
+    device.mountPoint = ui->deviceTable->item(currentRow, 1)->text().toStdString();
     
-    if (reply == QMessageBox::Yes) {
-        ui->resultsTable->setRowCount(0);
-        ui->quarantineSelectedButton->setEnabled(false);
-        addLogMessage("Scan results cleared");
+    scanDevice(device);
+}
+
+void MainWindow::onQuarantineButtonClicked() {
+    QuarantineDialog dialog(quarantineManager_, this);
+    dialog.exec();
+}
+
+void MainWindow::onSettingsButtonClicked() {
+    SettingsDialog dialog(scanner_->getScanConfig(), this);
+    if (dialog.exec() == QDialog::Accepted) {
+        ui->statusLabel->setText("Настройки сканирования обновлены");
     }
 }
 
-void MainWindow::onResultsTableSelectionChanged() {
-    bool hasSelection = !ui->resultsTable->selectionModel()->selectedRows().isEmpty();
-    ui->quarantineSelectedButton->setEnabled(hasSelection);
-}
-
 void MainWindow::scanDevice(const DeviceInfo& device) {
-    ui->resultsTable->setRowCount(0);
-    addLogMessage(QString("Starting background scan: %1").arg(QString::fromStdString(device.mountPoint)));
-    ui->scanButton->setEnabled(false);
-    ui->progressBar->setValue(0);
+    if (scanThread_ && scanThread_->isRunning()) {
+        QMessageBox::warning(this, "Сканирование выполняется", 
+                           "Сканирование уже запущено. Пожалуйста, дождитесь завершения.");
+        return;
+    }
     
-    scanThread_ = new QThread();
+    ui->resultsTable->setRowCount(0);
+    ui->progressBar->setVisible(true);
+    ui->progressBar->setRange(0, 0);
+    ui->scanButton->setEnabled(false);
+    ui->statusLabel->setText(QString("Сканирование %1...").arg(QString::fromStdString(device.deviceName)));
+    
+    scanThread_ = new QThread;
     ScanWorker* worker = new ScanWorker(scanner_, device);
     worker->moveToThread(scanThread_);
     
     connect(scanThread_, &QThread::started, worker, &ScanWorker::doScan);
-    
-    connect(worker, &ScanWorker::progressChanged, this, [this](int value) {
-        ui->progressBar->setValue(value);
-    });
-    
-    connect(worker, &ScanWorker::scanFinished, this, [this, device](const std::vector<ScanResult>& results) {
-        onScanFinished(device, results);
-    });
-    
+    connect(worker, &ScanWorker::scanFinished, this, 
+            [this, device](const std::vector<ScanResult>& results) {
+                onScanFinished(device, results);
+            });
     connect(worker, &ScanWorker::scanFinished, scanThread_, &QThread::quit);
     connect(scanThread_, &QThread::finished, worker, &QObject::deleteLater);
     connect(scanThread_, &QThread::finished, scanThread_, &QObject::deleteLater);
     
     scanThread_->start();
-    addLogMessage("Scan running in background thread...");
 }
 
 void MainWindow::onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results) {
-    ui->progressBar->setValue(100);
+    ui->progressBar->setVisible(false);
+    ui->scanButton->setEnabled(true);
     
-    deviceRepo_->recordDeviceScan(device);
+    int threatsFound = 0;
+    int totalFiles = results.size();
+    std::vector<ScanResult> infectedFiles;
     
-    if (results.empty()) {
-        addLogMessage("✓ Scan complete: No threats found");
-        QMessageBox::information(this, "Scan Complete", "No threats detected!");
-    } else {
-        addLogMessage(QString("⚠ Scan complete: %1 threats found").arg(results.size()));
-        
-        // Добавляем результаты в таблицу
-        for (const auto& result : results) {
+    for (const auto& result : results) {
+        if (result.isInfected) {
+            infectedFiles.push_back(result);
+            threatsFound++;
+            
             int row = ui->resultsTable->rowCount();
             ui->resultsTable->insertRow(row);
             ui->resultsTable->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(result.filePath)));
-            ui->resultsTable->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(result.virusName)));
-            ui->resultsTable->setItem(row, 2, new QTableWidgetItem(QString::number(result.severity)));
-            
-            deviceRepo_->recordScanResult(device.mountPoint, result);
+            ui->resultsTable->setItem(row, 1, new QTableWidgetItem("⚠️ Заражен"));
+            ui->resultsTable->setItem(row, 2, new QTableWidgetItem(QString::fromStdString(result.virusName)));
         }
-        
-        QString message = QString("Found %1 infected file(s)!\n\n"
-                                 "You can now:\n"
-                                 "• Select files in the table\n"
-                                 "• Click 'Quarantine Selected' to move them to quarantine")
-                         .arg(results.size());
-        
-        QMessageBox::warning(this, "Threats Detected", message);
     }
     
-    ui->scanButton->setEnabled(true);
+    for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
+        if (ui->deviceTable->item(row, 1)->text().toStdString() == device.mountPoint) {
+            QString status = threatsFound > 0 ? 
+                QString("%1 угроз").arg(threatsFound) : "Чисто";
+            ui->deviceTable->setItem(row, 2, new QTableWidgetItem(status));
+            ui->deviceTable->setItem(row, 3, new QTableWidgetItem(
+                QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss")));
+            break;
+        }
+    }
+    
+    if (threatsFound > 0) {
+        ui->statusLabel->setText(QString("⚠️ Сканирование завершено: найдено %1 угроз!").arg(threatsFound));
+        
+        // 🔍 DEBUG
+        qDebug() << "=== DEBUG: About to show ResultDialog ===";
+        qDebug() << "Threats found:" << threatsFound;
+        qDebug() << "Total files:" << totalFiles;
+        
+        // 1️⃣ ПОКАЗЫВАЕМ ОКНО С ИКОНКОЙ
+        ResultDialog::showInfectedResult(this, threatsFound, totalFiles);
+        
+        qDebug() << "=== DEBUG: ResultDialog closed ===";
+        
+        // 2️⃣ ДЛЯ КАЖДОГО ФАЙЛА ВЫБОР
+        for (const auto& result : infectedFiles) {
+            qDebug() << "Showing dialog for file:" << QString::fromStdString(result.filePath);
+            handleInfectedFile(QString::fromStdString(result.filePath), 
+                             QString::fromStdString(result.virusName));
+        }
+        
+    } else {
+        ui->statusLabel->setText("✅ Сканирование завершено: угроз не найдено");
+        ResultDialog::showCleanResult(this, totalFiles);
+    }
+    
     scanThread_ = nullptr;
 }
 
-void MainWindow::addLogMessage(const QString& message) {
-    QString timestamp = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
-    ui->logText->append(QString("[%1] %2").arg(timestamp, message));
+void MainWindow::showThreatSummary(int threatsFound, int totalFiles) {
+    // Не используется
+}
+
+void MainWindow::handleInfectedFile(const QString& filePath, const QString& virusName) {
+    QMessageBox msgBox(this);
+    msgBox.setWindowTitle("⚠️ Угроза обнаружена");
+    msgBox.setIcon(QMessageBox::Warning);
+    msgBox.setText(QString("<h3>Обнаружен вирус: <font color='red'>%1</font></h3>").arg(virusName));
+    msgBox.setInformativeText(QString("<b>Файл:</b><br>%1<br><br><b>Что сделать с этим файлом?</b>").arg(filePath));
+    
+    QPushButton* quarantineBtn = msgBox.addButton("🔒 Поместить в карантин", QMessageBox::AcceptRole);
+    QPushButton* ignoreBtn = msgBox.addButton("❌ Игнорировать", QMessageBox::RejectRole);
+    msgBox.setDefaultButton(quarantineBtn);
+    
+    msgBox.exec();
+    
+    if (msgBox.clickedButton() == quarantineBtn) {
+        if (quarantineManager_->quarantineFile(filePath.toStdString(), virusName.toStdString())) {
+            QMessageBox::information(this, "✅ Успешно", 
+                QString("Файл <b>%1</b> помещен в карантин").arg(QFileInfo(filePath).fileName()));
+        } else {
+            QMessageBox::critical(this, "❌ Ошибка", 
+                "Не удалось поместить файл в карантин");
+        }
+    } else {
+        qDebug() << "⚠️ User chose to ignore infected file:" << filePath;
+        QMessageBox::warning(this, "⚠️ Предупреждение", 
+            "Файл остался на диске и может быть опасен!");
+    }
 }

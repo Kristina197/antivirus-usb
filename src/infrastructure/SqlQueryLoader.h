@@ -1,12 +1,20 @@
 #pragma once
-#include <string>
-#include <unordered_map>
+#include <QString>
+#include <QMap>
+#include <QSqlDatabase>
+
 class SqlQueryLoader {
 public:
     static SqlQueryLoader& getInstance();
-    bool loadQueriesFromFile(const std::string& filePath);
-    std::string getQuery(const std::string& queryName) const;
+    
+    bool loadQueriesFromFile(const QString& filePath);
+    QString getQuery(const QString& queryName) const;
+    bool executeSchemaFile(QSqlDatabase& db, const QString& filePath);
+    
 private:
     SqlQueryLoader() = default;
-    std::unordered_map<std::string, std::string> queries_;
+    QMap<QString, QString> queries_;
+    
+    SqlQueryLoader(const SqlQueryLoader&) = delete;
+    SqlQueryLoader& operator=(const SqlQueryLoader&) = delete;
 };

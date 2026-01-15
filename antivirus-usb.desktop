@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=USB Antivirus
+Comment=Scan USB drives for viruses
+Exec=/home/kristina/antivirus-usb/build/AntivirusUSB
+Icon=/home/kristina/antivirus-usb/icon.png
+Path=/home/kristina/antivirus-usb/build
+Terminal=false
+Categories=System;Security;Utility;
+StartupNotify=true

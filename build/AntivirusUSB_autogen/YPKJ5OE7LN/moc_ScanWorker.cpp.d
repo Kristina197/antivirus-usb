@@ -1,8 +1,13 @@
 /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_ScanWorker.cpp: /home/kristina/antivirus-usb/src/ui/ScanWorker.h \
   /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/moc_predefs.h \
   /home/kristina/antivirus-usb/src/entities/DeviceInfo.h \
+  /home/kristina/antivirus-usb/src/entities/ScanConfig.h \
   /home/kristina/antivirus-usb/src/entities/ScanResult.h \
+  /home/kristina/antivirus-usb/src/entities/Signature.h \
+  /home/kristina/antivirus-usb/src/interfaces/ISignatureRepository.h \
   /home/kristina/antivirus-usb/src/usecases/IVirusScanner.h \
+  /home/kristina/antivirus-usb/src/usecases/QuarantineManager.h \
+  /home/kristina/antivirus-usb/src/usecases/VirusScanner.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -136,7 +141,6 @@
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/functional \
-  /usr/include/c++/13/future \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
@@ -282,7 +286,7 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \
@@ -305,8 +309,6 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerinfo.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainertools_impl.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h \
@@ -346,7 +348,6 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtconfigmacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcore-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreexports.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \

@@ -1,19 +1,52 @@
 #include "DatabaseConnection.h"
 #include "SqlQueryLoader.h"
-#include <QSqlQuery>
+#include <QFile>
+#include <QDebug>
+#include <QDir>
 #include <QSqlError>
-#include <iostream>
-DatabaseConnection& DatabaseConnection::getInstance() { static DatabaseConnection instance; return instance; }
-bool DatabaseConnection::initialize(const std::string& dbPath) {
+#include <QSqlQuery>
+#include <QStandardPaths>
+
+DatabaseConnection::DatabaseConnection() {
     db_ = QSqlDatabase::addDatabase("QSQLITE");
-    db_.setDatabaseName(QString::fromStdString(dbPath));
-    if (!db_.open()) { std::cerr << "Failed to open database\n"; return false; }
-    auto& loader = SqlQueryLoader::getInstance();
+    
+    // ИСПРАВЛЕНИЕ: используем фиксированный путь к БД
+    QString dbPath = QDir::homePath() + "/antivirus-usb/build/antivirus.db";
+    
+    // Создаем директорию если не существует
+    QDir dbDir = QFileInfo(dbPath).absoluteDir();
+    if (!dbDir.exists()) {
+        dbDir.mkpath(".");
+    }
+    
+    db_.setDatabaseName(dbPath);
+    
+    if (!db_.open()) {
+        qCritical() << "Failed to open database:" << db_.lastError().text();
+        return;
+    }
+    
     QSqlQuery query(db_);
-    if (!query.exec(QString::fromStdString(loader.getQuery("create_signatures_table")))) return false;
-    if (!query.exec(QString::fromStdString(loader.getQuery("create_scan_history_table")))) return false;
-    if (!query.exec(QString::fromStdString(loader.getQuery("create_devices_table")))) return false;
-    connected_ = true; return true;
+    query.exec("PRAGMA foreign_keys = ON");
+    query.exec("PRAGMA journal_mode = WAL");
+    
+    qDebug() << "✓ Database opened successfully at:" << dbPath;
+    
+    // SQL файлы тоже ищем по абсолютному пути
+    QString sqlBasePath = QDir::homePath() + "/antivirus-usb/build/sql/";
+    
+    auto& queryLoader = SqlQueryLoader::getInstance();
+    if (!queryLoader.executeSchemaFile(db_, sqlBasePath + "schema.sql")) {
+        qCritical() << "Failed to initialize database schema";
+        return;
+    }
+    
+    queryLoader.loadQueriesFromFile(sqlBasePath + "queries/signature_queries.sql");
+    queryLoader.loadQueriesFromFile(sqlBasePath + "queries/device_queries.sql");
+    
+    qDebug() << "✓ Database initialized with schema and queries";
 }
-QSqlDatabase& DatabaseConnection::getDatabase() { return db_; }
-bool DatabaseConnection::isConnected() const { return connected_; }
+
+QSqlDatabase DatabaseConnection::getDatabase() const {
+    return db_;
+}

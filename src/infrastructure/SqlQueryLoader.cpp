@@ -1,32 +1,82 @@
 #include "SqlQueryLoader.h"
-#include <fstream>
-#include <iostream>
-SqlQueryLoader& SqlQueryLoader::getInstance() { static SqlQueryLoader instance; return instance; }
-bool SqlQueryLoader::loadQueriesFromFile(const std::string& filePath) {
-    std::ifstream file(filePath);
-    if (!file.is_open()) { std::cerr << "Failed to open SQL file\n"; return false; }
-    std::string line, currentQuery, currentName;
-    bool inQuery = false;
-    while (std::getline(file, line)) {
-        size_t start = line.find_first_not_of(" \t\r\n");
-        if (start == std::string::npos) continue;
-        line = line.substr(start);
-        if (line.substr(0, 2) == "--") {
-            if (line.find("@name:") != std::string::npos) {
-                if (!currentName.empty() && !currentQuery.empty()) queries_[currentName] = currentQuery;
-                currentName = line.substr(line.find(":") + 1);
-                currentName.erase(0, currentName.find_first_not_of(" \t"));
-                currentName.erase(currentName.find_last_not_of(" \t\r\n") + 1);
-                currentQuery.clear(); inQuery = true;
+#include <QFile>
+#include <QTextStream>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
+
+SqlQueryLoader& SqlQueryLoader::getInstance() {
+    static SqlQueryLoader instance;
+    return instance;
+}
+
+bool SqlQueryLoader::loadQueriesFromFile(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCritical() << "Failed to open query file:" << filePath;
+        return false;
+    }
+    
+    QTextStream in(&file);
+    QString currentName;
+    QString currentQuery;
+    
+    while (!in.atEnd()) {
+        QString line = in.readLine().trimmed();
+        
+        if (line.startsWith("-- name:")) {
+            if (!currentName.isEmpty() && !currentQuery.isEmpty()) {
+                queries_[currentName] = currentQuery.trimmed();
             }
+            currentName = line.mid(8).trimmed();
+            currentQuery.clear();
+        } else if (!line.startsWith("--") && !line.isEmpty()) {
+            currentQuery += line + " ";
+        }
+    }
+    
+    if (!currentName.isEmpty() && !currentQuery.isEmpty()) {
+        queries_[currentName] = currentQuery.trimmed();
+    }
+    
+    qDebug() << "Loaded" << queries_.size() << "queries from" << filePath;
+    return true;
+}
+
+QString SqlQueryLoader::getQuery(const QString& queryName) const {
+    if (!queries_.contains(queryName)) {
+        qWarning() << "Query not found:" << queryName;
+        return QString();
+    }
+    return queries_[queryName];
+}
+
+bool SqlQueryLoader::executeSchemaFile(QSqlDatabase& db, const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCritical() << "Failed to open schema file:" << filePath;
+        return false;
+    }
+    
+    QTextStream in(&file);
+    QString sql = in.readAll();
+    
+    QStringList statements = sql.split(';', Qt::SkipEmptyParts);
+    
+    for (const QString& statement : statements) {
+        QString trimmed = statement.trimmed();
+        if (trimmed.isEmpty() || trimmed.startsWith("--")) {
             continue;
         }
-        if (inQuery && !line.empty()) currentQuery += line + "\n";
+        
+        QSqlQuery query(db);
+        if (!query.exec(trimmed)) {
+            qCritical() << "Failed to execute statement:" << query.lastError().text();
+            qCritical() << "Statement:" << trimmed;
+            return false;
+        }
     }
-    if (!currentName.empty() && !currentQuery.empty()) queries_[currentName] = currentQuery;
-    file.close(); return !queries_.empty();
-}
-std::string SqlQueryLoader::getQuery(const std::string& queryName) const {
-    auto it = queries_.find(queryName);
-    return (it != queries_.end()) ? it->second : "";
+    
+    qDebug() << "✓ Schema executed successfully";
+    return true;
 }

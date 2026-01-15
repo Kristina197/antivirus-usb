@@ -1,12 +1,16 @@
 #pragma once
+#include <QObject>
 #include "../entities/DeviceInfo.h"
-#include <vector>
-#include <functional>
-class IUsbMonitor {
+
+class IUsbMonitor : public QObject {
+    Q_OBJECT
+    
 public:
     virtual ~IUsbMonitor() = default;
-    virtual std::vector<DeviceInfo> getConnectedDevices() = 0;
     virtual void startMonitoring() = 0;
     virtual void stopMonitoring() = 0;
-    virtual void setOnDeviceConnectedCallback(std::function<void(const DeviceInfo&)> callback) = 0;
+    
+signals:
+    void deviceConnected(const DeviceInfo& device);
+    void deviceDisconnected(const DeviceInfo& device);
 };

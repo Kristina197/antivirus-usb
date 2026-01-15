@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/home/kristina/antivirus-usb/build/AntivirusUSB_autogen",
+	"CMAKE_BINARY_DIR" : "/home/kristina/antivirus-usb/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/kristina/antivirus-usb/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/kristina/antivirus-usb",
+	"CMAKE_SOURCE_DIR" : "/home/kristina/antivirus-usb",
+	"GENERATOR" : "Unix Makefiles",
+	"INCLUDE_DIR" : "/home/kristina/antivirus-usb/build/AntivirusUSB_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/kristina/antivirus-usb/build/resources/shield-infected.jpg",
+		"/home/kristina/antivirus-usb/build/resources/shield-clean.jpg"
+	],
+	"LOCK_FILE" : "/home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB_autogen.dir/AutoRcc_resources_JU62CA5L7X_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "JU62CA5L7X",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/kristina/antivirus-usb/build/CMakeFiles/AntivirusUSB_autogen.dir/AutoRcc_resources_JU62CA5L7X_Used.txt",
+	"SOURCE" : "/home/kristina/antivirus-usb/build/resources.qrc",
+	"VERBOSITY" : 0
+}

@@ -155,6 +155,30 @@ AntivirusUSB_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB_autogen.dir/build.make CMakeFiles/AntivirusUSB_autogen.dir/build
 .PHONY : AntivirusUSB_autogen/fast
 
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.o: AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o
+.PHONY : AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.o
+
+# target to build an object file
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o
+.PHONY : AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o
+
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.i: AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i
+.PHONY : AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.i
+
+# target to preprocess a source file
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i
+.PHONY : AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.i
+
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.s: AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s
+.PHONY : AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.s
+
+# target to generate assembly for a file
+AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s
+.PHONY : AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.s
+
 AntivirusUSB_autogen/mocs_compilation.o: AntivirusUSB_autogen/mocs_compilation.cpp.o
 .PHONY : AntivirusUSB_autogen/mocs_compilation.o
 
@@ -178,6 +202,30 @@ AntivirusUSB_autogen/mocs_compilation.s: AntivirusUSB_autogen/mocs_compilation.c
 AntivirusUSB_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.s
 .PHONY : AntivirusUSB_autogen/mocs_compilation.cpp.s
+
+src/entities/ScanConfig.o: src/entities/ScanConfig.cpp.o
+.PHONY : src/entities/ScanConfig.o
+
+# target to build an object file
+src/entities/ScanConfig.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o
+.PHONY : src/entities/ScanConfig.cpp.o
+
+src/entities/ScanConfig.i: src/entities/ScanConfig.cpp.i
+.PHONY : src/entities/ScanConfig.i
+
+# target to preprocess a source file
+src/entities/ScanConfig.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.i
+.PHONY : src/entities/ScanConfig.cpp.i
+
+src/entities/ScanConfig.s: src/entities/ScanConfig.cpp.s
+.PHONY : src/entities/ScanConfig.s
+
+# target to generate assembly for a file
+src/entities/ScanConfig.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.s
+.PHONY : src/entities/ScanConfig.cpp.s
 
 src/infrastructure/DatabaseConnection.o: src/infrastructure/DatabaseConnection.cpp.o
 .PHONY : src/infrastructure/DatabaseConnection.o
@@ -347,6 +395,30 @@ src/ui/QuarantineDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.s
 .PHONY : src/ui/QuarantineDialog.cpp.s
 
+src/ui/SettingsDialog.o: src/ui/SettingsDialog.cpp.o
+.PHONY : src/ui/SettingsDialog.o
+
+# target to build an object file
+src/ui/SettingsDialog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o
+.PHONY : src/ui/SettingsDialog.cpp.o
+
+src/ui/SettingsDialog.i: src/ui/SettingsDialog.cpp.i
+.PHONY : src/ui/SettingsDialog.i
+
+# target to preprocess a source file
+src/ui/SettingsDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.i
+.PHONY : src/ui/SettingsDialog.cpp.i
+
+src/ui/SettingsDialog.s: src/ui/SettingsDialog.cpp.s
+.PHONY : src/ui/SettingsDialog.s
+
+# target to generate assembly for a file
+src/ui/SettingsDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AntivirusUSB.dir/build.make CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.s
+.PHONY : src/ui/SettingsDialog.cpp.s
+
 src/usecases/QuarantineManager.o: src/usecases/QuarantineManager.cpp.o
 .PHONY : src/usecases/QuarantineManager.o
 
@@ -430,9 +502,15 @@ help:
 	@echo "... AntivirusUSB_autogen"
 	@echo "... AntivirusUSB_autogen_timestamp_deps"
 	@echo "... AntivirusUSB"
+	@echo "... AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.o"
+	@echo "... AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.i"
+	@echo "... AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.s"
 	@echo "... AntivirusUSB_autogen/mocs_compilation.o"
 	@echo "... AntivirusUSB_autogen/mocs_compilation.i"
 	@echo "... AntivirusUSB_autogen/mocs_compilation.s"
+	@echo "... src/entities/ScanConfig.o"
+	@echo "... src/entities/ScanConfig.i"
+	@echo "... src/entities/ScanConfig.s"
 	@echo "... src/infrastructure/DatabaseConnection.o"
 	@echo "... src/infrastructure/DatabaseConnection.i"
 	@echo "... src/infrastructure/DatabaseConnection.s"
@@ -454,6 +532,9 @@ help:
 	@echo "... src/ui/QuarantineDialog.o"
 	@echo "... src/ui/QuarantineDialog.i"
 	@echo "... src/ui/QuarantineDialog.s"
+	@echo "... src/ui/SettingsDialog.o"
+	@echo "... src/ui/SettingsDialog.i"
+	@echo "... src/ui/SettingsDialog.s"
 	@echo "... src/usecases/QuarantineManager.o"
 	@echo "... src/usecases/QuarantineManager.i"
 	@echo "... src/usecases/QuarantineManager.s"

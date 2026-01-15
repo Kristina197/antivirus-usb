@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>900</width>
     <height>600</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <item>
      <widget class="QLabel" name="titleLabel">
       <property name="text">
-       <string>USB Antivirus Scanner v2.0</string>
+       <string>USB Antivirus Scanner</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -32,34 +32,49 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="devicesGroup">
-      <property name="title">
-       <string>Connected USB Devices</string>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Connected Devices:</string>
       </property>
-      <layout class="QVBoxLayout">
-       <item>
-        <widget class="QListWidget" name="deviceList"/>
-       </item>
-       <item>
-        <layout class="QHBoxLayout">
-         <item>
-          <widget class="QPushButton" name="refreshButton">
-           <property name="text">
-            <string>Refresh</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="scanButton">
-           <property name="text">
-            <string>Scan Selected Device</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
      </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="deviceTable"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="scanButton">
+        <property name="text">
+         <string>Scan Selected Device</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settingsButton">
+        <property name="text">
+         <string>⚙️ Settings</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="quarantineButton">
+        <property name="text">
+         <string>🗂️ Quarantine</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Scan Results:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="resultsTable"/>
     </item>
     <item>
      <widget class="QProgressBar" name="progressBar">
@@ -69,84 +84,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="resultsGroup">
-      <property name="title">
-       <string>Scan Results</string>
+     <widget class="QLabel" name="statusLabel">
+      <property name="text">
+       <string>Ready</string>
       </property>
-      <layout class="QVBoxLayout">
-       <item>
-        <widget class="QTableWidget" name="resultsTable">
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout">
-         <item>
-          <widget class="QPushButton" name="quarantineSelectedButton">
-           <property name="text">
-            <string>Quarantine Selected</string>
-           </property>
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="clearResultsButton">
-           <property name="text">
-            <string>Clear Results</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="logGroup">
-      <property name="title">
-       <string>Activity Log</string>
-      </property>
-      <layout class="QVBoxLayout">
-       <item>
-        <widget class="QTextEdit" name="logText">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

@@ -3,7 +3,10 @@ AntivirusUSB_autogen/timestamp: \
 	/home/kristina/antivirus-usb/build/AntivirusUSB_autogen/moc_predefs.h \
 	/home/kristina/antivirus-usb/build/CMakeFiles/3.28.3/CMakeCXXCompiler.cmake \
 	/home/kristina/antivirus-usb/build/CMakeFiles/3.28.3/CMakeSystem.cmake \
+	/home/kristina/antivirus-usb/build/resources.qrc \
 	/home/kristina/antivirus-usb/src/entities/DeviceInfo.h \
+	/home/kristina/antivirus-usb/src/entities/ScanConfig.cpp \
+	/home/kristina/antivirus-usb/src/entities/ScanConfig.h \
 	/home/kristina/antivirus-usb/src/entities/ScanResult.h \
 	/home/kristina/antivirus-usb/src/entities/Signature.h \
 	/home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.cpp \
@@ -22,7 +25,10 @@ AntivirusUSB_autogen/timestamp: \
 	/home/kristina/antivirus-usb/src/ui/QuarantineDialog.cpp \
 	/home/kristina/antivirus-usb/src/ui/QuarantineDialog.h \
 	/home/kristina/antivirus-usb/src/ui/RestoreWorker.h \
+	/home/kristina/antivirus-usb/src/ui/ResultDialog.h \
 	/home/kristina/antivirus-usb/src/ui/ScanWorker.h \
+	/home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp \
+	/home/kristina/antivirus-usb/src/ui/SettingsDialog.h \
 	/home/kristina/antivirus-usb/src/usecases/IUsbMonitor.h \
 	/home/kristina/antivirus-usb/src/usecases/IVirusScanner.h \
 	/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp \
@@ -186,6 +192,7 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/c++/13/streambuf \
 	/usr/include/c++/13/string \
 	/usr/include/c++/13/string_view \
+	/usr/include/c++/13/thread \
 	/usr/include/c++/13/tr1/bessel_function.tcc \
 	/usr/include/c++/13/tr1/beta_function.tcc \
 	/usr/include/c++/13/tr1/ell_integral.tcc \
@@ -210,6 +217,7 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/errno.h \
 	/usr/include/features-time64.h \
 	/usr/include/features.h \
+	/usr/include/libudev.h \
 	/usr/include/limits.h \
 	/usr/include/linux/errno.h \
 	/usr/include/linux/limits.h \
@@ -263,6 +271,7 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
 	/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
 	/usr/include/x86_64-linux-gnu/bits/syscall.h \
+	/usr/include/x86_64-linux-gnu/bits/sysmacros.h \
 	/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
 	/usr/include/x86_64-linux-gnu/bits/time.h \
 	/usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -318,7 +327,6 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
-	/usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -328,7 +336,6 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qatomic.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qatomic_cxx11.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbasicatomic.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbindingstorage.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearray.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayalgorithms.h \
@@ -405,7 +412,6 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreexports.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
@@ -413,6 +419,7 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qbrush.h \
@@ -426,6 +433,7 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
@@ -433,18 +441,24 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSpinBox \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
@@ -454,17 +468,20 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qslider.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qspinbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleoption.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
@@ -478,6 +495,7 @@ AntivirusUSB_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/sys/cdefs.h \
 	/usr/include/x86_64-linux-gnu/sys/select.h \
 	/usr/include/x86_64-linux-gnu/sys/syscall.h \
+	/usr/include/x86_64-linux-gnu/sys/sysmacros.h \
 	/usr/include/x86_64-linux-gnu/sys/types.h \
 	/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
 	/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \

@@ -1,12 +1,14 @@
 #pragma once
+
 #include <QMainWindow>
-#include <QTimer>
-#include <QThread>
+#include <QTableWidget>
 #include <memory>
 #include "../usecases/IVirusScanner.h"
+#include "../usecases/VirusScanner.h"
 #include "../usecases/IUsbMonitor.h"
-#include "../usecases/QuarantineManager.h"
 #include "../interfaces/IDeviceRepository.h"
+#include "../usecases/QuarantineManager.h"
+#include "../entities/DeviceInfo.h"
 #include "../entities/ScanResult.h"
 
 QT_BEGIN_NAMESPACE
@@ -15,35 +17,35 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
-    
+
 public:
-    MainWindow(std::shared_ptr<IVirusScanner> scanner,
+    MainWindow(std::shared_ptr<VirusScanner> scanner,
                std::shared_ptr<IUsbMonitor> usbMonitor,
                std::shared_ptr<IDeviceRepository> deviceRepo,
                std::shared_ptr<QuarantineManager> quarantineManager,
                QWidget *parent = nullptr);
     ~MainWindow();
-    
+
 private slots:
-    void onScanButtonClicked();
-    void onRefreshDevicesClicked();
     void onDeviceConnected(const DeviceInfo& device);
-    void onQuarantineSelectedClicked();
-    void onClearResultsClicked();
-    void onResultsTableSelectionChanged();
-    
+    void onDeviceDisconnected(const DeviceInfo& device);
+    void onScanButtonClicked();
+    void onQuarantineButtonClicked();
+    void onSettingsButtonClicked();
+    void onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results);
+    void showThreatSummary(int threatsFound, int totalFiles);
+    void handleInfectedFile(const QString& filePath, const QString& virusName);
+
 private:
     void setupConnections();
-    void updateDeviceList();
+    void setupDeviceTable();
+    void setupResultsTable();
     void scanDevice(const DeviceInfo& device);
-    void onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results);
-    void addLogMessage(const QString& message);
-    
+
     Ui::MainWindow *ui;
-    std::shared_ptr<IVirusScanner> scanner_;
+    std::shared_ptr<VirusScanner> scanner_;
     std::shared_ptr<IUsbMonitor> usbMonitor_;
     std::shared_ptr<IDeviceRepository> deviceRepo_;
     std::shared_ptr<QuarantineManager> quarantineManager_;
-    QTimer* refreshTimer_;
     QThread* scanThread_;
 };

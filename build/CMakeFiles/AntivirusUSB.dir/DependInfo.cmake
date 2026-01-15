@@ -9,7 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "AntivirusUSB_autogen/timestamp" "custom" "AntivirusUSB_autogen/deps"
+  "/home/kristina/antivirus-usb/build/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp" "CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/JU62CA5L7X/qrc_resources.cpp.o.d"
   "/home/kristina/antivirus-usb/build/AntivirusUSB_autogen/mocs_compilation.cpp" "CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o.d"
+  "/home/kristina/antivirus-usb/src/entities/ScanConfig.cpp" "CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/entities/ScanConfig.cpp.o.d"
   "/home/kristina/antivirus-usb/src/infrastructure/DatabaseConnection.cpp" "CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/infrastructure/DatabaseConnection.cpp.o.d"
   "/home/kristina/antivirus-usb/src/infrastructure/SqlQueryLoader.cpp" "CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/infrastructure/SqlQueryLoader.cpp.o.d"
   "/home/kristina/antivirus-usb/src/main.cpp" "CMakeFiles/AntivirusUSB.dir/src/main.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/main.cpp.o.d"
@@ -17,6 +19,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kristina/antivirus-usb/src/repositories/SignatureRepository.cpp" "CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o.d"
   "/home/kristina/antivirus-usb/src/ui/MainWindow.cpp" "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/ui/MainWindow.cpp.o.d"
   "/home/kristina/antivirus-usb/src/ui/QuarantineDialog.cpp" "CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o.d"
+  "/home/kristina/antivirus-usb/src/ui/SettingsDialog.cpp" "CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o.d"
   "/home/kristina/antivirus-usb/src/usecases/QuarantineManager.cpp" "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/usecases/QuarantineManager.cpp.o.d"
   "/home/kristina/antivirus-usb/src/usecases/UsbMonitor.cpp" "CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/usecases/UsbMonitor.cpp.o.d"
   "/home/kristina/antivirus-usb/src/usecases/VirusScanner.cpp" "CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o" "gcc" "CMakeFiles/AntivirusUSB.dir/src/usecases/VirusScanner.cpp.o.d"

@@ -2,4 +2,8 @@
 #include "YPKJ5OE7LN/moc_MainWindow.cpp"
 #include "YPKJ5OE7LN/moc_QuarantineDialog.cpp"
 #include "YPKJ5OE7LN/moc_RestoreWorker.cpp"
+#include "YPKJ5OE7LN/moc_ResultDialog.cpp"
 #include "YPKJ5OE7LN/moc_ScanWorker.cpp"
+#include "YPKJ5OE7LN/moc_SettingsDialog.cpp"
+#include "HF2ZXR2YJA/moc_IUsbMonitor.cpp"
+#include "HF2ZXR2YJA/moc_UsbMonitor.cpp"

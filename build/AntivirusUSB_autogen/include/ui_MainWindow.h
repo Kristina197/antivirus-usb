@@ -11,19 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -35,31 +29,22 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QLabel *titleLabel;
-    QGroupBox *devicesGroup;
-    QVBoxLayout *vboxLayout;
-    QListWidget *deviceList;
-    QHBoxLayout *hboxLayout;
-    QPushButton *refreshButton;
+    QLabel *label;
+    QTableWidget *deviceTable;
+    QHBoxLayout *horizontalLayout;
     QPushButton *scanButton;
-    QProgressBar *progressBar;
-    QGroupBox *resultsGroup;
-    QVBoxLayout *vboxLayout1;
+    QPushButton *settingsButton;
+    QPushButton *quarantineButton;
+    QLabel *label_2;
     QTableWidget *resultsTable;
-    QHBoxLayout *hboxLayout1;
-    QPushButton *quarantineSelectedButton;
-    QPushButton *clearResultsButton;
-    QSpacerItem *horizontalSpacer;
-    QGroupBox *logGroup;
-    QVBoxLayout *vboxLayout2;
-    QTextEdit *logText;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QProgressBar *progressBar;
+    QLabel *statusLabel;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(900, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -74,32 +59,45 @@ public:
 
         verticalLayout->addWidget(titleLabel);
 
-        devicesGroup = new QGroupBox(centralwidget);
-        devicesGroup->setObjectName("devicesGroup");
-        vboxLayout = new QVBoxLayout(devicesGroup);
-        vboxLayout->setObjectName("vboxLayout");
-        deviceList = new QListWidget(devicesGroup);
-        deviceList->setObjectName("deviceList");
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
 
-        vboxLayout->addWidget(deviceList);
+        verticalLayout->addWidget(label);
 
-        hboxLayout = new QHBoxLayout();
-        hboxLayout->setObjectName("hboxLayout");
-        refreshButton = new QPushButton(devicesGroup);
-        refreshButton->setObjectName("refreshButton");
+        deviceTable = new QTableWidget(centralwidget);
+        deviceTable->setObjectName("deviceTable");
 
-        hboxLayout->addWidget(refreshButton);
+        verticalLayout->addWidget(deviceTable);
 
-        scanButton = new QPushButton(devicesGroup);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        scanButton = new QPushButton(centralwidget);
         scanButton->setObjectName("scanButton");
 
-        hboxLayout->addWidget(scanButton);
+        horizontalLayout->addWidget(scanButton);
+
+        settingsButton = new QPushButton(centralwidget);
+        settingsButton->setObjectName("settingsButton");
+
+        horizontalLayout->addWidget(settingsButton);
+
+        quarantineButton = new QPushButton(centralwidget);
+        quarantineButton->setObjectName("quarantineButton");
+
+        horizontalLayout->addWidget(quarantineButton);
 
 
-        vboxLayout->addLayout(hboxLayout);
+        verticalLayout->addLayout(horizontalLayout);
 
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
 
-        verticalLayout->addWidget(devicesGroup);
+        verticalLayout->addWidget(label_2);
+
+        resultsTable = new QTableWidget(centralwidget);
+        resultsTable->setObjectName("resultsTable");
+
+        verticalLayout->addWidget(resultsTable);
 
         progressBar = new QProgressBar(centralwidget);
         progressBar->setObjectName("progressBar");
@@ -107,60 +105,12 @@ public:
 
         verticalLayout->addWidget(progressBar);
 
-        resultsGroup = new QGroupBox(centralwidget);
-        resultsGroup->setObjectName("resultsGroup");
-        vboxLayout1 = new QVBoxLayout(resultsGroup);
-        vboxLayout1->setObjectName("vboxLayout1");
-        resultsTable = new QTableWidget(resultsGroup);
-        resultsTable->setObjectName("resultsTable");
-        resultsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+        statusLabel = new QLabel(centralwidget);
+        statusLabel->setObjectName("statusLabel");
 
-        vboxLayout1->addWidget(resultsTable);
-
-        hboxLayout1 = new QHBoxLayout();
-        hboxLayout1->setObjectName("hboxLayout1");
-        quarantineSelectedButton = new QPushButton(resultsGroup);
-        quarantineSelectedButton->setObjectName("quarantineSelectedButton");
-        quarantineSelectedButton->setEnabled(false);
-
-        hboxLayout1->addWidget(quarantineSelectedButton);
-
-        clearResultsButton = new QPushButton(resultsGroup);
-        clearResultsButton->setObjectName("clearResultsButton");
-
-        hboxLayout1->addWidget(clearResultsButton);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        hboxLayout1->addItem(horizontalSpacer);
-
-
-        vboxLayout1->addLayout(hboxLayout1);
-
-
-        verticalLayout->addWidget(resultsGroup);
-
-        logGroup = new QGroupBox(centralwidget);
-        logGroup->setObjectName("logGroup");
-        vboxLayout2 = new QVBoxLayout(logGroup);
-        vboxLayout2->setObjectName("vboxLayout2");
-        logText = new QTextEdit(logGroup);
-        logText->setObjectName("logText");
-        logText->setReadOnly(true);
-
-        vboxLayout2->addWidget(logText);
-
-
-        verticalLayout->addWidget(logGroup);
+        verticalLayout->addWidget(statusLabel);
 
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 22));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
@@ -170,14 +120,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "USB Antivirus Scanner", nullptr));
-        titleLabel->setText(QCoreApplication::translate("MainWindow", "USB Antivirus Scanner v2.0", nullptr));
-        devicesGroup->setTitle(QCoreApplication::translate("MainWindow", "Connected USB Devices", nullptr));
-        refreshButton->setText(QCoreApplication::translate("MainWindow", "Refresh", nullptr));
+        titleLabel->setText(QCoreApplication::translate("MainWindow", "USB Antivirus Scanner", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Connected Devices:", nullptr));
         scanButton->setText(QCoreApplication::translate("MainWindow", "Scan Selected Device", nullptr));
-        resultsGroup->setTitle(QCoreApplication::translate("MainWindow", "Scan Results", nullptr));
-        quarantineSelectedButton->setText(QCoreApplication::translate("MainWindow", "Quarantine Selected", nullptr));
-        clearResultsButton->setText(QCoreApplication::translate("MainWindow", "Clear Results", nullptr));
-        logGroup->setTitle(QCoreApplication::translate("MainWindow", "Activity Log", nullptr));
+        settingsButton->setText(QCoreApplication::translate("MainWindow", "\342\232\231\357\270\217 Settings", nullptr));
+        quarantineButton->setText(QCoreApplication::translate("MainWindow", "\360\237\227\202\357\270\217 Quarantine", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Scan Results:", nullptr));
+        statusLabel->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
     } // retranslateUi
 
 };

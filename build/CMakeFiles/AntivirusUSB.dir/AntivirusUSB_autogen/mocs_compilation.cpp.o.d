@@ -342,29 +342,6 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
- /usr/include/c++/13/future /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
- /usr/include/c++/13/condition_variable \
- /usr/include/c++/13/bits/atomic_futex.h \
- /usr/include/c++/13/bits/std_thread.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IVirusScanner.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/ScanResult.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IUsbMonitor.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/DeviceInfo.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/QuarantineManager.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../interfaces/IDeviceRepository.h \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_QuarantineDialog.cpp \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/QuarantineDialog.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
@@ -384,6 +361,22 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IVirusScanner.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/ScanResult.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/VirusScanner.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/ScanConfig.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../interfaces/ISignatureRepository.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../interfaces/../entities/Signature.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/QuarantineManager.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IUsbMonitor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/DeviceInfo.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../interfaces/IDeviceRepository.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_QuarantineDialog.cpp \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/QuarantineDialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
@@ -400,15 +393,41 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
+ /usr/include/c++/13/future /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/c++/13/condition_variable \
+ /usr/include/c++/13/bits/atomic_futex.h \
+ /usr/include/c++/13/bits/std_thread.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_RestoreWorker.cpp \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/RestoreWorker.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_ResultDialog.cpp \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/ResultDialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_ScanWorker.cpp \
- /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/ScanWorker.h
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/ScanWorker.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/moc_SettingsDialog.cpp \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/SettingsDialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSpinBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qspinbox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/HF2ZXR2YJA/moc_IUsbMonitor.cpp \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/HF2ZXR2YJA/moc_UsbMonitor.cpp \
+ /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/HF2ZXR2YJA/../../../src/usecases/UsbMonitor.h \
+ /usr/include/libudev.h /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/sysmacros.h \
+ /usr/include/c++/13/thread /usr/include/c++/13/bits/this_thread_sleep.h

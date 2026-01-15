@@ -1,0 +1,39 @@
+#include "DatabaseConnection.h"
+#include "SqlQueryLoader.h"
+#include <QFile>
+#include <QDebug>
+#include <QDir>
+#include <QSqlError>
+#include <QSqlQuery>
+
+DatabaseConnection::DatabaseConnection() {
+    db_ = QSqlDatabase::addDatabase("QSQLITE");
+    db_.setDatabaseName(QDir::currentPath() + "/antivirus.db");
+    
+    if (!db_.open()) {
+        qCritical() << "Failed to open database:" << db_.lastError().text();
+        return;
+    }
+    
+    QSqlQuery query(db_);
+    query.exec("PRAGMA foreign_keys = ON");
+    query.exec("PRAGMA journal_mode = WAL");
+    
+    qDebug() << "✓ Database opened successfully";
+    
+    auto& queryLoader = SqlQueryLoader::getInstance();
+    if (!queryLoader.executeSchemaFile(db_, "./sql/schema.sql")) {
+        qCritical() << "Failed to initialize database schema";
+        return;
+    }
+    
+    queryLoader.loadQueriesFromFile("./sql/queries/signature_queries.sql");
+    queryLoader.loadQueriesFromFile("./sql/queries/scan_queries.sql");
+    queryLoader.loadQueriesFromFile("./sql/queries/device_queries.sql");
+    
+    qDebug() << "✓ Database initialized with schema and queries";
+}
+
+QSqlDatabase DatabaseConnection::getDatabase() const {
+    return db_;
+}

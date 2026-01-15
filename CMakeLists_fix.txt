@@ -1,0 +1,2 @@
+# Замени блок qt_add_resources на этот:
+qt_add_resources(RESOURCES resources.qrc)

@@ -1,10 +1,10 @@
 #pragma once
-#include "../entities/ScanResult.h"
-#include <vector>
 #include <string>
+#include <vector>
+#include "../entities/ScanResult.h"
+
 class IVirusScanner {
 public:
     virtual ~IVirusScanner() = default;
-    virtual std::vector<ScanResult> scanDirectory(const std::string& path) = 0;
-    virtual bool loadSignatures() = 0;
+    virtual void scanDirectory(const std::string& path, std::vector<ScanResult>& results) = 0;
 };

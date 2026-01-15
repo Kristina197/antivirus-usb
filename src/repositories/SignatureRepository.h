@@ -1,13 +1,23 @@
 #pragma once
 #include "../interfaces/ISignatureRepository.h"
 #include <QSqlDatabase>
+#include <memory>
+
 class SignatureRepository : public ISignatureRepository {
 public:
     explicit SignatureRepository(QSqlDatabase& db);
-    bool addSignature(const Signature& sig) override;
+    
     std::vector<Signature> getAllSignatures() override;
-    Signature getSignatureByName(const std::string& name) override;
-    bool deleteSignature(int id) override;
+    bool addSignature(const std::string& virusName, const std::string& hash, 
+                     uint32_t offset, uint32_t length, int threatLevel = 5);
+    bool findByHash(const std::string& hash, Signature& outSignature);
+    
 private:
     QSqlDatabase& db_;
+    
+    // Prepared statement cache
+    struct PreparedStatements {
+        std::unique_ptr<QSqlQuery> getAllSignatures;
+        std::unique_ptr<QSqlQuery> findByHash;
+    };
 };

@@ -1,23 +1,32 @@
 #pragma once
-#include "IVirusScanner.h"
-#include "../interfaces/ISignatureRepository.h"
-#include "../entities/Signature.h"
-#include "QuarantineManager.h"
-#include <memory>
+#include <string>
 #include <vector>
+#include <memory>
+#include "IVirusScanner.h"
+#include "../entities/ScanResult.h"
+#include "../entities/ScanConfig.h"
+#include "../interfaces/ISignatureRepository.h"
+#include "QuarantineManager.h"
 
 class VirusScanner : public IVirusScanner {
 public:
-    explicit VirusScanner(std::shared_ptr<ISignatureRepository> sigRepo,
-                         std::shared_ptr<QuarantineManager> quarantineManager = nullptr);
-    std::vector<ScanResult> scanDirectory(const std::string& path) override;
-    bool loadSignatures() override;
+    VirusScanner(std::shared_ptr<ISignatureRepository> signatureRepo,
+                 std::shared_ptr<QuarantineManager> quarantineManager);
+    
+    bool scanFile(const std::string& filePath, std::vector<ScanResult>& results);
+    void scanDirectory(const std::string& directoryPath, std::vector<ScanResult>& results) override;
+    
+    // Настройки сканирования
+    void setScanConfig(const ScanConfig& config) { config_ = config; }
+    ScanConfig& getScanConfig() { return config_; }
     
 private:
-    bool scanFile(const std::string& filePath, std::vector<ScanResult>& results);
-    std::string calculateMD5(const std::string& filePath, uint32_t offset, uint32_t length);
-    
-    std::shared_ptr<ISignatureRepository> sigRepo_;
+    std::shared_ptr<ISignatureRepository> signatureRepo_;
     std::shared_ptr<QuarantineManager> quarantineManager_;
-    std::vector<Signature> signatures_;
+    ScanConfig config_;
+    
+    void scanDirectoryRecursive(const std::string& path, std::vector<ScanResult>& results, int currentDepth);
+    bool checkFileSignature(const std::string& filePath, const std::string& hash, 
+                           std::vector<ScanResult>& results);
+    std::string calculateMD5(const std::string& filePath, uint32_t offset, uint32_t length);
 };
