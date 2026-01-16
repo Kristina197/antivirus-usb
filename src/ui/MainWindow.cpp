@@ -71,6 +71,7 @@ void MainWindow::setupDeviceTable() {
     ui->deviceTable->horizontalHeader()->setStretchLastSection(true);
     ui->deviceTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->deviceTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->deviceTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void MainWindow::setupResultsTable() {
@@ -78,6 +79,7 @@ void MainWindow::setupResultsTable() {
     ui->resultsTable->setHorizontalHeaderLabels({"Путь к файлу", "Статус", "Название вируса"});
     ui->resultsTable->horizontalHeader()->setStretchLastSection(true);
     ui->resultsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->resultsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void MainWindow::onDeviceConnected(const DeviceInfo& device) {
