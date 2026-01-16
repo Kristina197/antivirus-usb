@@ -37,6 +37,7 @@ int autoScanMode(const QString& scanPath) {
     }
     
     auto sigRepo = std::make_shared<SignatureRepository>(db);
+    initializeSignatures(sigRepo);
     auto quarantineManager = std::make_shared<QuarantineManager>(
         QDir::homePath().toStdString() + "/antivirus-usb/quarantine"
     );
@@ -103,6 +104,7 @@ int main(int argc, char *argv[]) {
     }
     
     auto sigRepo = std::make_shared<SignatureRepository>(db);
+    initializeSignatures(sigRepo);
     auto deviceRepo = std::make_shared<DeviceRepository>(db);
     auto quarantineManager = std::make_shared<QuarantineManager>(
         QDir::homePath().toStdString() + "/antivirus-usb/quarantine"

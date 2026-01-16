@@ -11,7 +11,7 @@ DatabaseConnection::DatabaseConnection() {
     db_ = QSqlDatabase::addDatabase("QSQLITE");
     
     // ИСПРАВЛЕНИЕ: используем фиксированный путь к БД
-    QString dbPath = QDir::homePath() + "/antivirus-usb/build/antivirus.db";
+    QString dbPath = QDir::homePath() + "/.local/share/antivirus-usb/antivirus.db";
     
     // Создаем директорию если не существует
     QDir dbDir = QFileInfo(dbPath).absoluteDir();
@@ -33,7 +33,7 @@ DatabaseConnection::DatabaseConnection() {
     qDebug() << "✓ Database opened successfully at:" << dbPath;
     
     // SQL файлы тоже ищем по абсолютному пути
-    QString sqlBasePath = QDir::homePath() + "/antivirus-usb/build/sql/";
+    QString sqlBasePath = QDir::homePath() + "/antivirus-usb/sql/";
     
     auto& queryLoader = SqlQueryLoader::getInstance();
     if (!queryLoader.executeSchemaFile(db_, sqlBasePath + "schema.sql")) {
@@ -41,8 +41,8 @@ DatabaseConnection::DatabaseConnection() {
         return;
     }
     
-    queryLoader.loadQueriesFromFile(sqlBasePath + "queries/signature_queries.sql");
-    queryLoader.loadQueriesFromFile(sqlBasePath + "queries/device_queries.sql");
+    queryLoader.loadQueriesFromFile(sqlBasePath + "signature_queries.sql");
+    queryLoader.loadQueriesFromFile(sqlBasePath + "device_queries.sql");
     
     qDebug() << "✓ Database initialized with schema and queries";
 }
