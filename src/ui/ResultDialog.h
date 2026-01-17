@@ -61,7 +61,7 @@ public:
         layout->addWidget(threatsLabel);
 
         QLabel *scannedLabel = new QLabel(&dialog);
-        scannedLabel->setText(QString("Просканировано файлов: %1").arg(totalFiles));
+        scannedLabel->setText(QString("Всего просканировано: %1").arg(totalFiles));
         scannedLabel->setStyleSheet("font-size: 12pt; color: #95a5a6; margin-top: 10px;");
         scannedLabel->setAlignment(Qt::AlignCenter);
         layout->addWidget(scannedLabel);
@@ -135,7 +135,7 @@ public:
         layout->addWidget(infoLabel);
 
         QLabel *scannedLabel = new QLabel(&dialog);
-        scannedLabel->setText(QString("Просканировано файлов: %1").arg(totalFiles));
+        scannedLabel->setText(QString("Всего просканировано: %1").arg(totalFiles));
         scannedLabel->setStyleSheet("font-size: 12pt; color: #95a5a6; margin-top: 10px;");
         scannedLabel->setAlignment(Qt::AlignCenter);
         layout->addWidget(scannedLabel);

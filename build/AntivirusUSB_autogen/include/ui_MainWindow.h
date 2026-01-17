@@ -121,11 +121,11 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "USB Antivirus Scanner", nullptr));
         titleLabel->setText(QCoreApplication::translate("MainWindow", "USB Antivirus Scanner", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Connected Devices:", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\320\264\320\272\320\273\321\216\321\207\320\265\320\275\320\275\321\213\320\265 \321\203\321\201\321\202\321\200\320\276\320\271\321\201\321\202\320\262\320\260:", nullptr));
         scanButton->setText(QCoreApplication::translate("MainWindow", "Scan Selected Device", nullptr));
         settingsButton->setText(QCoreApplication::translate("MainWindow", "\342\232\231\357\270\217 Settings", nullptr));
         quarantineButton->setText(QCoreApplication::translate("MainWindow", " Quarantine", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Scan Results:", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202\321\213 \321\201\320\272\320\260\320\275\320\270\321\200\320\276\320\262\320\260\320\275\320\270\321\217:", nullptr));
         statusLabel->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
     } // retranslateUi
 
