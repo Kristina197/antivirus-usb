@@ -3126,6 +3126,7 @@ CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o: /home/kr
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/stl_algo.h \
@@ -3205,6 +3206,7 @@ CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o: /home/kr
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
@@ -3344,7 +3346,6 @@ CMakeFiles/AntivirusUSB.dir/src/repositories/SignatureRepository.cpp.o: /home/kr
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QMap \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \
@@ -4125,7 +4126,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o: /home/kristina/antivi
   /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
-  /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/iterator \
   /usr/include/c++/13/limits \
@@ -4286,7 +4286,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/QuarantineDialog.cpp.o: /home/kristina/antivi
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDateTime \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDir \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/QFileInfo \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
@@ -4493,8 +4492,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/13/bits/basic_ios.h \
-  /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
   /usr/include/c++/13/bits/basic_string.tcc \
   /usr/include/c++/13/bits/char_traits.h \
@@ -4516,12 +4513,9 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
-  /usr/include/c++/13/bits/istream.tcc \
   /usr/include/c++/13/bits/list.tcc \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
-  /usr/include/c++/13/bits/locale_facets.h \
-  /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
@@ -4529,7 +4523,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
   /usr/include/c++/13/bits/node_handle.h \
-  /usr/include/c++/13/bits/ostream.tcc \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/parse_numbers.h \
   /usr/include/c++/13/bits/postypes.h \
@@ -4542,7 +4535,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
-  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/stl_algo.h \
@@ -4590,7 +4582,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/cstring \
   /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
-  /usr/include/c++/13/cwctype \
   /usr/include/c++/13/debug/assertions.h \
   /usr/include/c++/13/debug/debug.h \
   /usr/include/c++/13/exception \
@@ -4603,9 +4594,7 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
-  /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
-  /usr/include/c++/13/istream \
   /usr/include/c++/13/iterator \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/list \
@@ -4614,14 +4603,12 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/c++/13/new \
   /usr/include/c++/13/numeric \
   /usr/include/c++/13/optional \
-  /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
-  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
@@ -4668,7 +4655,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
-  /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
@@ -4742,7 +4728,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
-  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
@@ -4750,8 +4735,6 @@ CMakeFiles/AntivirusUSB.dir/src/ui/SettingsDialog.cpp.o: /home/kristina/antiviru
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
