@@ -1,0 +1,14 @@
+--- a/src/ui/MainWindow.cpp
++++ b/src/ui/MainWindow.cpp
+@@ -51,9 +51,9 @@
+ 
+ void MainWindow::setupConnections() {
+     connect(usbMonitor_.get(), &IUsbMonitor::deviceConnected, 
+-            this, &MainWindow::onDeviceConnected);
++            this, &MainWindow::onDeviceConnected, Qt::QueuedConnection);
+     connect(usbMonitor_.get(), &IUsbMonitor::deviceDisconnected, 
+-            this, &MainWindow::onDeviceDisconnected);
++            this, &MainWindow::onDeviceDisconnected, Qt::QueuedConnection);
+     
+     connect(ui->scanButton, &QPushButton::clicked,
+             this, &MainWindow::onScanButtonClicked);

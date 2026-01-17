@@ -36,6 +36,7 @@ UsbMonitor::~UsbMonitor() {
 void UsbMonitor::startMonitoring() {
     if (running_) return;
     running_ = true;
+    scanExistingDevices();
     monitorThread_ = std::thread(&UsbMonitor::monitorLoop, this);
     std::cout << "✓ USB monitoring started" << std::endl;
 }
@@ -80,6 +81,31 @@ std::string UsbMonitor::getMountPoint(const std::string& devicePath) {
     
     return mountPoint;
 }
+
+void UsbMonitor::scanExistingDevices() {
+    std::ifstream mounts("/proc/mounts");
+    std::string line;
+    
+    while (std::getline(mounts, line)) {
+        if (line.find("/media/") != std::string::npos || line.find("/mnt/") != std::string::npos) {
+            std::istringstream iss(line);
+            std::string device, mountPoint;
+            iss >> device >> mountPoint;
+            
+            if (device.find("/dev/sd") != std::string::npos && device != "/dev/sda" && device != "/dev/sda1") {
+                DeviceInfo info;
+                size_t lastSlash = mountPoint.find_last_of("/");
+                std::string volumeLabel = (lastSlash != std::string::npos) ? mountPoint.substr(lastSlash + 1) : device;
+                info.deviceName = volumeLabel.empty() ? device : volumeLabel;
+                info.devicePath = device;
+                info.mountPoint = mountPoint;
+                std::cout << "✓ Found existing USB device: " << device << " at " << mountPoint << std::endl;
+                emit deviceConnected(info);
+            }
+        }
+    }
+}
+
 
 void UsbMonitor::monitorLoop() {
     int fd = udev_monitor_get_fd(monitor_);

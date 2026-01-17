@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <vector>
 #include <QTableWidget>
 #include <memory>
 #include "../usecases/IVirusScanner.h"
@@ -47,5 +48,6 @@ private:
     std::shared_ptr<IUsbMonitor> usbMonitor_;
     std::shared_ptr<IDeviceRepository> deviceRepo_;
     std::shared_ptr<QuarantineManager> quarantineManager_;
+    std::vector<DeviceInfo> connectedDevices_;
     QThread* scanThread_;
 };

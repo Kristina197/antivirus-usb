@@ -115,6 +115,7 @@ int main(int argc, char *argv[]) {
     
     MainWindow window(scanner, usbMonitor, deviceRepo, quarantineManager);
     window.show();
+    usbMonitor->startMonitoring();
     
     return app.exec();
 }

@@ -52,9 +52,9 @@ MainWindow::~MainWindow() {
 
 void MainWindow::setupConnections() {
     connect(usbMonitor_.get(), &IUsbMonitor::deviceConnected, 
-            this, &MainWindow::onDeviceConnected, Qt::QueuedConnection);
+            this, &MainWindow::onDeviceConnected);
     connect(usbMonitor_.get(), &IUsbMonitor::deviceDisconnected, 
-            this, &MainWindow::onDeviceDisconnected, Qt::QueuedConnection);
+            this, &MainWindow::onDeviceDisconnected);
     
     connect(ui->scanButton, &QPushButton::clicked, 
             this, &MainWindow::onScanButtonClicked);

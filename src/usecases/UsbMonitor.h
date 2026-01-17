@@ -18,6 +18,7 @@ public:
 private:
     void monitorLoop();
     std::string getMountPoint(const std::string& devicePath);
+    void scanExistingDevices();
 
     struct udev* udev_;
     struct udev_monitor* monitor_;
