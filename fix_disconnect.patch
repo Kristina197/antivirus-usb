@@ -1,0 +1,14 @@
+--- a/src/ui/MainWindow.cpp
++++ b/src/ui/MainWindow.cpp
+@@ -120,9 +120,9 @@
+ void MainWindow::onDeviceDisconnected(const DeviceInfo& device) {
+     qDebug() << "Device disconnected:" << QString::fromStdString(device.deviceName);
+     
+     for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
+-        QTableWidgetItem* mountItem = ui->deviceTable->item(row, 1);
+-        if (mountItem && mountItem->text().toStdString() == device.mountPoint) {
++        QTableWidgetItem* deviceItem = ui->deviceTable->item(row, 0);
++        if (deviceItem && deviceItem->text().toStdString() == device.deviceName) {
+             ui->deviceTable->removeRow(row);
+             break;
+         }

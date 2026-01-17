@@ -84,22 +84,15 @@ void MainWindow::setupResultsTable() {
 }
 
 void MainWindow::onDeviceConnected(const DeviceInfo& device) {
-    qDebug() << "Thread ID:" << QThread::currentThreadId() << ", Main thread:" << QCoreApplication::instance()->thread();
     qDebug() << "Device connected:" << QString::fromStdString(device.deviceName);
-    qDebug() << "  mountPoint:" << QString::fromStdString(device.mountPoint);
-    qDebug() << "  devicePath:" << QString::fromStdString(device.devicePath);
     
     int row = ui->deviceTable->rowCount();
     ui->deviceTable->insertRow(row);
     ui->deviceTable->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(device.deviceName)));
-    qDebug() << "  setItem(0) called, item pointer:" << ui->deviceTable->item(row, 0);
     ui->deviceTable->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(device.mountPoint)));
     ui->deviceTable->setItem(row, 2, new QTableWidgetItem("Подключено"));
     ui->deviceTable->setItem(row, 3, new QTableWidgetItem("Не сканировалось"));
     
-    qDebug() << "✓ Added device to table, row:" << row;
-    qDebug() << "  Column 0:" << ui->deviceTable->item(row, 0)->text();
-    qDebug() << "  Column 1:" << ui->deviceTable->item(row, 1)->text();
     
     connectedDevices_.push_back(device);
     
@@ -121,8 +114,8 @@ void MainWindow::onDeviceDisconnected(const DeviceInfo& device) {
     qDebug() << "Device disconnected:" << QString::fromStdString(device.deviceName);
     
     for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
-        QTableWidgetItem* mountItem = ui->deviceTable->item(row, 1);
-        if (mountItem && mountItem->text().toStdString() == device.mountPoint) {
+        QTableWidgetItem* deviceItem = ui->deviceTable->item(row, 0);
+        if (deviceItem && deviceItem->text().toStdString() == device.deviceName) {
             ui->deviceTable->removeRow(row);
             break;
         }
@@ -207,8 +200,8 @@ void MainWindow::onScanFinished(const DeviceInfo& device, const std::vector<Scan
     }
     
     for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
-        QTableWidgetItem* mountItem = ui->deviceTable->item(row, 1);
-        if (mountItem && mountItem->text().toStdString() == device.mountPoint) {
+        QTableWidgetItem* deviceItem = ui->deviceTable->item(row, 0);
+        if (deviceItem && deviceItem->text().toStdString() == device.deviceName) {
             QString status = threatsFound > 0 ? 
                 QString("%1 угроз").arg(threatsFound) : "Чисто";
             ui->deviceTable->setItem(row, 2, new QTableWidgetItem(status));
