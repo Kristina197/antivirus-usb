@@ -95,12 +95,16 @@ void MainWindow::onDeviceConnected(const DeviceInfo& device) {
 
     ui->statusLabel->setText(QString("USB устройство подключено: %1").arg(QString::fromStdString(device.deviceName)));
 
-    QMessageBox::StandardButton reply = QMessageBox::question(
-        this, "USB устройство обнаружено",
-        QString("USB устройство '%1' было подключено.\nХотите просканировать его сейчас?")
-            .arg(QString::fromStdString(device.deviceName)),
-        QMessageBox::Yes | QMessageBox::No
-    );
+    QMessageBox msgBox(this);
+    msgBox.setWindowTitle("USB устройство обнаружено");
+    msgBox.setText(QString("USB устройство '%1' было подключено.\nХотите просканировать его сейчас?")
+        .arg(QString::fromStdString(device.deviceName)));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.button(QMessageBox::Yes)->setText("Да");
+    msgBox.button(QMessageBox::No)->setText("Нет");
+    msgBox.setDefaultButton(QMessageBox::Yes);
+    
+    int reply = msgBox.exec();
 
     if (reply == QMessageBox::Yes) {
         scanDevice(device);
