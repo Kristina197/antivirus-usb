@@ -39,8 +39,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf"
-      binary: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf"
+      source: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5"
+      binary: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -49,13 +49,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf'
+        Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_68012/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_68012.dir/build.make CMakeFiles/cmTC_68012.dir/build
-        gmake[1]: Entering directory '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf'
-        Building CXX object CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_02e01/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_02e01.dir/build.make CMakeFiles/cmTC_02e01.dir/build
+        gmake[1]: Entering directory '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5'
+        Building CXX object CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -65,8 +65,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_68012.dir/'
-         /usr/libexec/gcc/x86_64-linux-gnu/13/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_68012.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccGUp8jA.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_02e01.dir/'
+         /usr/libexec/gcc/x86_64-linux-gnu/13/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_02e01.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccLE7sWN.s
         GNU C++17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (x86_64-linux-gnu)
         	compiled by GNU C version 13.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
         
@@ -87,15 +87,15 @@ events:
          /usr/include
         End of search list.
         Compiler executable checksum: c81c05345ce537099dafd5580045814a
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_68012.dir/'
-         as -v --64 -o CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccGUp8jA.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_02e01.dir/'
+         as -v --64 -o CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccLE7sWN.s
         GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
         COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_68012
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68012.dir/link.txt --verbose=1
-        /usr/bin/c++  -v CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_68012 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_02e01
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02e01.dir/link.txt --verbose=1
+        /usr/bin/c++  -v CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_02e01 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper
@@ -108,10 +108,10 @@ events:
         gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) 
         COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_68012' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_68012.'
-         /usr/libexec/gcc/x86_64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPpcR9c.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_68012 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_68012' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_68012.'
-        gmake[1]: Leaving directory '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_02e01' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_02e01.'
+         /usr/libexec/gcc/x86_64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrP7aLN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_02e01 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_02e01' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_02e01.'
+        gmake[1]: Leaving directory '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5'
         
       exitCode: 0
   -
@@ -151,13 +151,13 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf']
+        ignore line: [Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_68012/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_68012.dir/build.make CMakeFiles/cmTC_68012.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-HWnVcf']
-        ignore line: [Building CXX object CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_02e01/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_02e01.dir/build.make CMakeFiles/cmTC_02e01.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-aQOid5']
+        ignore line: [Building CXX object CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -167,8 +167,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_68012.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-linux-gnu/13/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_68012.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccGUp8jA.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_02e01.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-linux-gnu/13/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_02e01.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccLE7sWN.s]
         ignore line: [GNU C++17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 13.3.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
         ignore line: []
@@ -189,15 +189,15 @@ events:
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: c81c05345ce537099dafd5580045814a]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_68012.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccGUp8jA.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_02e01.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccLE7sWN.s]
         ignore line: [GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_68012]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68012.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_68012 ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_02e01]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02e01.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_02e01 ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper]
@@ -210,13 +210,13 @@ events:
         ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) ]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_68012' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_68012.']
-        link line: [ /usr/libexec/gcc/x86_64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPpcR9c.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_68012 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_02e01' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_02e01.']
+        link line: [ /usr/libexec/gcc/x86_64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrP7aLN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_02e01 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/libexec/gcc/x86_64-linux-gnu/13/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccPpcR9c.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccrP7aLN.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -234,7 +234,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_68012] ==> ignore
+          arg [cmTC_02e01] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o]
@@ -246,7 +246,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/13/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/13/../../..]
-          arg [CMakeFiles/cmTC_68012.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_02e01.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -288,8 +288,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-oVGI1E"
-      binary: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-oVGI1E"
+      source: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-PdNbRJ"
+      binary: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-PdNbRJ"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -299,17 +299,17 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-oVGI1E'
+        Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-PdNbRJ'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6cd73/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_6cd73.dir/build.make CMakeFiles/cmTC_6cd73.dir/build
-        gmake[1]: вход в каталог «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-oVGI1E»
-        Building CXX object CMakeFiles/cmTC_6cd73.dir/src.cxx.o
-        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++17 -o CMakeFiles/cmTC_6cd73.dir/src.cxx.o -c /home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-oVGI1E/src.cxx
-        Linking CXX executable cmTC_6cd73
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6cd73.dir/link.txt --verbose=1
-        /usr/bin/c++ CMakeFiles/cmTC_6cd73.dir/src.cxx.o -o cmTC_6cd73 
-        gmake[1]: выход из каталога «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-oVGI1E»
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_71146/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_71146.dir/build.make CMakeFiles/cmTC_71146.dir/build
+        gmake[1]: вход в каталог «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-PdNbRJ»
+        Building CXX object CMakeFiles/cmTC_71146.dir/src.cxx.o
+        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++17 -o CMakeFiles/cmTC_71146.dir/src.cxx.o -c /home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-PdNbRJ/src.cxx
+        Linking CXX executable cmTC_71146
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71146.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_71146.dir/src.cxx.o -o cmTC_71146 
+        gmake[1]: выход из каталога «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-PdNbRJ»
         
       exitCode: 0
   -
@@ -327,8 +327,8 @@ events:
     checks:
       - "Performing Test HAVE_STDATOMIC"
     directories:
-      source: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-5ufLpJ"
-      binary: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-5ufLpJ"
+      source: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-u6271V"
+      binary: "/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-u6271V"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -338,17 +338,17 @@ events:
       variable: "HAVE_STDATOMIC"
       cached: true
       stdout: |
-        Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-5ufLpJ'
+        Change Dir: '/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-u6271V'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3e5c1/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_3e5c1.dir/build.make CMakeFiles/cmTC_3e5c1.dir/build
-        gmake[1]: вход в каталог «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-5ufLpJ»
-        Building CXX object CMakeFiles/cmTC_3e5c1.dir/src.cxx.o
-        /usr/bin/c++ -DHAVE_STDATOMIC  -std=gnu++17 -o CMakeFiles/cmTC_3e5c1.dir/src.cxx.o -c /home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-5ufLpJ/src.cxx
-        Linking CXX executable cmTC_3e5c1
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e5c1.dir/link.txt --verbose=1
-        /usr/bin/c++ CMakeFiles/cmTC_3e5c1.dir/src.cxx.o -o cmTC_3e5c1 
-        gmake[1]: выход из каталога «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-5ufLpJ»
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8c104/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8c104.dir/build.make CMakeFiles/cmTC_8c104.dir/build
+        gmake[1]: вход в каталог «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-u6271V»
+        Building CXX object CMakeFiles/cmTC_8c104.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_STDATOMIC  -std=gnu++17 -o CMakeFiles/cmTC_8c104.dir/src.cxx.o -c /home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-u6271V/src.cxx
+        Linking CXX executable cmTC_8c104
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8c104.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_8c104.dir/src.cxx.o -o cmTC_8c104 
+        gmake[1]: выход из каталога «/home/kristina/antivirus-usb/build/CMakeFiles/CMakeScratch/TryCompile-u6271V»
         
       exitCode: 0
 ...
