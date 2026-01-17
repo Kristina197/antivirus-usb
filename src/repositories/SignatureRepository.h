@@ -15,7 +15,6 @@ public:
 private:
     QSqlDatabase& db_;
     
-    // Prepared statement cache
     struct PreparedStatements {
         std::unique_ptr<QSqlQuery> getAllSignatures;
         std::unique_ptr<QSqlQuery> findByHash;

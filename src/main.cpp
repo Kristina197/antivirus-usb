@@ -21,7 +21,7 @@ void printUsage() {
 
 void initializeSignatures(std::shared_ptr<SignatureRepository> sigRepo) {
     sigRepo->addSignature("EICAR-Test-File", "44d88612fea8a8f36de82e1278abb02f", 0, 68, 1);
-    qDebug() << "✓ Signatures initialized";
+    qDebug() << "Signatures initialized";
 }
 
 int autoScanMode(const QString& scanPath) {
@@ -32,7 +32,7 @@ int autoScanMode(const QString& scanPath) {
     QSqlDatabase db = dbConn.getDatabase();
     
     if (!db.isOpen()) {
-        std::cerr << "✗ Failed to open database" << std::endl;
+        std::cerr << "Failed to open database" << std::endl;
         return 1;
     }
     
@@ -55,7 +55,7 @@ int autoScanMode(const QString& scanPath) {
     
     for (const auto& result : results) {
         if (result.isInfected) {
-            std::cout << "\n⚠️  THREAT DETECTED:" << std::endl;
+            std::cout << "\n THREAT DETECTED:" << std::endl;
             std::cout << "   Virus: " << result.virusName << std::endl;
             std::cout << "   File: " << result.filePath << std::endl;
             std::cout << "   [INFO] File not quarantined in auto-scan mode" << std::endl;
@@ -69,11 +69,11 @@ int autoScanMode(const QString& scanPath) {
     std::cout << "Total threats found: " << threatsFound << std::endl;
     
     if (threatsFound > 0) {
-        std::cout << "\n⚠️  WARNING: Infected files detected!" << std::endl;
+        std::cout << "\n WARNING: Infected files detected!" << std::endl;
         std::cout << "Run GUI mode to review and quarantine threats:" << std::endl;
         std::cout << "  ./AntivirusUSB" << std::endl;
     } else {
-        std::cout << "✅ No threats detected" << std::endl;
+        std::cout << "No threats detected" << std::endl;
     }
     
     return threatsFound > 0 ? 1 : 0;

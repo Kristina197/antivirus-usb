@@ -342,7 +342,7 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidgetItem \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
@@ -361,6 +361,16 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
+ /usr/include/c++/13/future /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/c++/13/condition_variable \
+ /usr/include/c++/13/bits/atomic_futex.h \
+ /usr/include/c++/13/bits/std_thread.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/IVirusScanner.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/../entities/ScanResult.h \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/../usecases/VirusScanner.h \
@@ -377,6 +387,7 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /home/kristina/antivirus-usb/build/AntivirusUSB_autogen/YPKJ5OE7LN/../../../src/ui/QuarantineDialog.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
@@ -393,16 +404,6 @@ CMakeFiles/AntivirusUSB.dir/AntivirusUSB_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
- /usr/include/c++/13/future /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
- /usr/include/c++/13/condition_variable \
- /usr/include/c++/13/bits/atomic_futex.h \
- /usr/include/c++/13/bits/std_thread.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \

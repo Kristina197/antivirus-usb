@@ -1,10 +1,9 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QTableWidgetItem>
-#include <QThread>
+#include <vector>
+#include <QTableWidget>
 #include <memory>
-
 #include "../usecases/IVirusScanner.h"
 #include "../usecases/VirusScanner.h"
 #include "../usecases/IUsbMonitor.h"
@@ -43,7 +42,6 @@ private:
     void setupDeviceTable();
     void setupResultsTable();
     void scanDevice(const DeviceInfo& device);
-    void updateDeviceStatus(const QString& deviceName, int threatsCount);
 
     Ui::MainWindow *ui;
     std::shared_ptr<VirusScanner> scanner_;
@@ -52,5 +50,4 @@ private:
     std::shared_ptr<QuarantineManager> quarantineManager_;
     std::vector<DeviceInfo> connectedDevices_;
     QThread* scanThread_;
-    DeviceInfo currentScannedDevice_;
 };

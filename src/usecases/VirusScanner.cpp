@@ -53,27 +53,27 @@ void VirusScanner::scanDirectoryRecursive(const std::string& path, std::vector<S
 bool VirusScanner::scanFile(const std::string& filePath, std::vector<ScanResult>& results) {
     std::vector<Signature> signatures = signatureRepo_->getAllSignatures();
     
-    std::cout << "🔎 Scanning file: " << filePath << std::endl;
-    std::cout << "   Signatures available: " << signatures.size() << std::endl;
+    std::cout << "Scanning file: " << filePath << std::endl;
+    std::cout << "Signatures available: " << signatures.size() << std::endl;
     
     for (const auto& sig : signatures) {
         std::cout << "   Checking signature: " << sig.virusName 
                   << " (hash: " << sig.signatureHash.substr(0, 8) << "...)" << std::endl;
         
         if (sig.signatureLength == 0) {
-            std::cout << "   ⚠️  Skipping - signatureLength is 0" << std::endl;
+            std::cout << "Skipping - signatureLength is 0" << std::endl;
             continue;
         }
         
         std::string hash = calculateMD5(filePath, sig.fileOffset, sig.signatureLength);
-        std::cout << "   File hash: " << hash.substr(0, 8) << "..." << std::endl;
-        std::cout << "   Expected : " << sig.signatureHash.substr(0, 8) << "..." << std::endl;
+        std::cout << "File hash: " << hash.substr(0, 8) << "..." << std::endl;
+        std::cout << "Expected : " << sig.signatureHash.substr(0, 8) << "..." << std::endl;
         
         if (hash == sig.signatureHash) {
             ScanResult result(filePath, true, sig.virusName);
             results.push_back(result);
             
-            std::cout << "🦠 VIRUS DETECTED: " << sig.virusName 
+            std::cout << "VIRUS DETECTED: " << sig.virusName 
                       << " in file: " << filePath << std::endl;
             
             return true;

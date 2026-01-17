@@ -19,13 +19,13 @@ public:
 
     static void showInfectedResult(QWidget *parent, int threatsFound, int totalFiles) {
         ResultDialog dialog(parent);
-        dialog.setWindowTitle("⚠️ Threats Detected");
+        dialog.setWindowTitle("Угроза заражения");
         
         QVBoxLayout *layout = new QVBoxLayout(&dialog);
         layout->setSpacing(25);
         layout->setContentsMargins(40, 40, 40, 40);
         
-        // ТВОЯ ИКОНКА ЗАРАЖЕННОГО ЩИТА
+        // Зараженный щит
         QLabel *iconLabel = new QLabel(&dialog);
         QPixmap shieldIcon("/home/kristina/antivirus-usb/resources/shield-infected.jpg");
         if (!shieldIcon.isNull()) {
@@ -38,7 +38,7 @@ public:
         layout->addWidget(iconLabel);
         
         // Заголовок
-        QLabel *titleLabel = new QLabel("⚠️ Threats Detected!", &dialog);
+        QLabel *titleLabel = new QLabel("Осторожно! Найдены вирусы", &dialog);
         titleLabel->setStyleSheet(
             "font-size: 28pt; "
             "font-weight: bold; "
@@ -99,14 +99,14 @@ public:
 
     static void showCleanResult(QWidget *parent, int totalFiles) {
         ResultDialog dialog(parent);
-        dialog.setWindowTitle("✅ System Clean");
+        dialog.setWindowTitle("Система чиста");
         dialog.setStyleSheet("QDialog { background-color: #2b2b2b; }");
         
         QVBoxLayout *layout = new QVBoxLayout(&dialog);
         layout->setSpacing(25);
         layout->setContentsMargins(40, 40, 40, 40);
         
-        // ТВОЯ ИКОНКА ЧИСТОГО ЩИТА
+        // Зеленый щит
         QLabel *iconLabel = new QLabel(&dialog);
         QPixmap shieldIcon("/home/kristina/antivirus-usb/resources/shield-clean.jpg");
         if (!shieldIcon.isNull()) {
@@ -119,7 +119,7 @@ public:
         layout->addWidget(iconLabel);
         
         // Заголовок
-        QLabel *titleLabel = new QLabel("✅ System Clean!", &dialog);
+        QLabel *titleLabel = new QLabel("Система чиста", &dialog);
         titleLabel->setStyleSheet(
             "font-size: 28pt; "
             "font-weight: bold; "

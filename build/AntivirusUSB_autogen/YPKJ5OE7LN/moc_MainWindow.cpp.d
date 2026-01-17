@@ -143,6 +143,7 @@
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/functional \
+  /usr/include/c++/13/future \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
@@ -294,6 +295,7 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -318,7 +320,9 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainertools_impl.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h \
@@ -375,6 +379,7 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcore-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \
@@ -407,7 +412,7 @@
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidgetItem \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \

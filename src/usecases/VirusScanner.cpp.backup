@@ -62,15 +62,15 @@ bool VirusScanner::scanFile(const std::string& filePath, std::vector<ScanResult>
             ScanResult result(filePath, true, sig.virusName);
             results.push_back(result);
             
-            std::cout << "🦠 VIRUS DETECTED: " << sig.virusName 
+            std::cout << "VIRUS DETECTED: " << sig.virusName 
                       << " in file: " << filePath << std::endl;
             
             if (quarantineManager_) {
                 bool quarantined = quarantineManager_->quarantineFile(filePath, sig.virusName);
                 if (quarantined) {
-                    std::cout << "🔒 File automatically quarantined: " << filePath << std::endl;
+                    std::cout << "File automatically quarantined: " << filePath << std::endl;
                 } else {
-                    std::cerr << "⚠ Failed to quarantine infected file: " << filePath << std::endl;
+                    std::cerr << "Failed to quarantine infected file: " << filePath << std::endl;
                 }
             }
             

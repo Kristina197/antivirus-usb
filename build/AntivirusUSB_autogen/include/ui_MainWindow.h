@@ -124,7 +124,7 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Connected Devices:", nullptr));
         scanButton->setText(QCoreApplication::translate("MainWindow", "Scan Selected Device", nullptr));
         settingsButton->setText(QCoreApplication::translate("MainWindow", "\342\232\231\357\270\217 Settings", nullptr));
-        quarantineButton->setText(QCoreApplication::translate("MainWindow", "\360\237\227\202\357\270\217 Quarantine", nullptr));
+        quarantineButton->setText(QCoreApplication::translate("MainWindow", " Quarantine", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Scan Results:", nullptr));
         statusLabel->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
     } // retranslateUi

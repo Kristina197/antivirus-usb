@@ -77,6 +77,6 @@ bool SqlQueryLoader::executeSchemaFile(QSqlDatabase& db, const QString& filePath
         }
     }
     
-    qDebug() << "✓ Schema executed successfully";
+    qDebug() << "Schema executed successfully";
     return true;
 }

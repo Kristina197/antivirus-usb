@@ -8,19 +8,19 @@
 UsbMonitor::UsbMonitor() : udev_(nullptr), monitor_(nullptr), running_(false) {
     udev_ = udev_new();
     if (!udev_) {
-        std::cerr << "✗ Failed to create udev context" << std::endl;
+        std::cerr << "Failed to create udev context" << std::endl;
         return;
     }
 
     monitor_ = udev_monitor_new_from_netlink(udev_, "udev");
     if (!monitor_) {
-        std::cerr << "✗ Failed to create udev monitor" << std::endl;
+        std::cerr << "Failed to create udev monitor" << std::endl;
         return;
     }
 
     udev_monitor_filter_add_match_subsystem_devtype(monitor_, "block", "disk");
     udev_monitor_enable_receiving(monitor_);
-    std::cout << "✓ USB Monitor initialized" << std::endl;
+    std::cout << "USB Monitor initialized" << std::endl;
 }
 
 UsbMonitor::~UsbMonitor() {
@@ -38,7 +38,7 @@ void UsbMonitor::startMonitoring() {
     running_ = true;
     scanExistingDevices();
     monitorThread_ = std::thread(&UsbMonitor::monitorLoop, this);
-    std::cout << "✓ USB monitoring started" << std::endl;
+    std::cout << "USB monitoring started" << std::endl;
 }
 
 void UsbMonitor::stopMonitoring() {
@@ -47,13 +47,13 @@ void UsbMonitor::stopMonitoring() {
     if (monitorThread_.joinable()) {
         monitorThread_.join();
     }
-    std::cout << "✓ USB monitoring stopped" << std::endl;
+    std::cout << "USB monitoring stopped" << std::endl;
 }
 
 std::string UsbMonitor::getMountPoint(const std::string& devicePath) {
     FILE* mountsFile = setmntent("/proc/mounts", "r");
     if (!mountsFile) {
-        std::cerr << "✗ Failed to open /proc/mounts" << std::endl;
+        std::cerr << "Failed to open /proc/mounts" << std::endl;
         return "";
     }
 
@@ -76,7 +76,7 @@ std::string UsbMonitor::getMountPoint(const std::string& devicePath) {
     endmntent(mountsFile);
     
     if (mountPoint.empty()) {
-        std::cerr << "⚠ Mount point not found for device: " << devicePath << std::endl;
+        std::cerr << "Mount point not found for device: " << devicePath << std::endl;
     }
     
     return mountPoint;
@@ -99,7 +99,7 @@ void UsbMonitor::scanExistingDevices() {
                 info.deviceName = volumeLabel.empty() ? device : volumeLabel;
                 info.devicePath = device;
                 info.mountPoint = mountPoint;
-                std::cout << "✓ Found existing USB device: " << device << " at " << mountPoint << std::endl;
+                std::cout << "Found existing USB device: " << device << " at " << mountPoint << std::endl;
                 emit deviceConnected(info);
             }
         }
@@ -143,16 +143,16 @@ void UsbMonitor::monitorLoop() {
                     }
                     
                     if (!device.mountPoint.empty()) {
-                        std::cout << "✓ USB device connected: " << devnode 
+                        std::cout << "USB device connected: " << devnode 
                                   << " mounted at " << device.mountPoint << std::endl;
                         emit deviceConnected(device);
                     } else {
-                        std::cerr << "⚠ USB device connected but not mounted: " << devnode << std::endl;
+                        std::cerr << "USB device connected but not mounted: " << devnode << std::endl;
                     }
                     
                 } else if (strcmp(action, "remove") == 0) {
                     device.mountPoint = "";
-                    std::cout << "✓ USB device disconnected: " << devnode << std::endl;
+                    std::cout << "USB device disconnected: " << devnode << std::endl;
                     emit deviceDisconnected(device);
                 }
             }

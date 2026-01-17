@@ -28,7 +28,7 @@ std::vector<Signature> SignatureRepository::getAllSignatures() {
     
     QSqlQuery query(db_);
     if (!query.exec(sql)) {
-        std::cerr << "❌ Failed to get signatures: " 
+        std::cerr << "Failed to get signatures: " 
                   << query.lastError().text().toStdString() << std::endl;
         return signatures;
     }
@@ -41,7 +41,7 @@ std::vector<Signature> SignatureRepository::getAllSignatures() {
         sig.fileOffset = query.value(3).toUInt();
         sig.signatureLength = query.value(4).toUInt();
         
-        std::cout << "  ✓ Loaded: " << sig.virusName 
+        std::cout << "  Loaded: " << sig.virusName 
                   << " | Hash: " << sig.signatureHash.substr(0, 8) << "..." 
                   << " | Offset: " << sig.fileOffset 
                   << " | Length: " << sig.signatureLength << std::endl;
@@ -50,7 +50,7 @@ std::vector<Signature> SignatureRepository::getAllSignatures() {
         count++;
     }
     
-    std::cout << "📊 Total signatures loaded: " << count << std::endl;
+    std::cout << "Total signatures loaded: " << count << std::endl;
     
     return signatures;
 }
@@ -68,7 +68,7 @@ bool SignatureRepository::findByHash(const std::string& hash, Signature& outSign
     query.addBindValue(QString::fromStdString(hash));
     
     if (!query.exec()) {
-        std::cerr << "❌ FindByHash failed: " << query.lastError().text().toStdString() << std::endl;
+        std::cerr << "FindByHash failed: " << query.lastError().text().toStdString() << std::endl;
         return false;
     }
     
@@ -133,6 +133,6 @@ bool SignatureRepository::addSignature(const std::string& virusName,
     }
     
     db_.commit();
-    std::cout << "✅ Added signature: " << virusName << std::endl;
+    std::cout << "Added signature: " << virusName << std::endl;
     return true;
 }

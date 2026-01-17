@@ -181,12 +181,12 @@ void QuarantineDialog::onRestoreClicked() {
     QApplication::processEvents();
     
     if (success) {
-        std::cout << "✓ Restore SUCCESS" << std::endl;
+        std::cout << "Restore SUCCESS" << std::endl;
         QMessageBox::information(this, "Success", 
             QString("File '%1' restored to:\n%2/%1").arg(filename, restoreDir));
         loadQuarantineFiles();
     } else {
-        std::cout << "✗ Restore FAILED" << std::endl;
+        std::cout << "Restore FAILED" << std::endl;
         QMessageBox::critical(this, "Error", "Failed to restore file");
         statusLabel_->setText(QString("Total files in quarantine: %1").arg(filesTable_->rowCount()));
     }
@@ -204,7 +204,7 @@ void QuarantineDialog::onDeleteClicked() {
     QString filePath = filesTable_->item(row, 0)->data(Qt::UserRole).toString();
     QString filename = filesTable_->item(row, 0)->text();
     
-    QString message = QString("Permanently delete '%1'?\n\n⚠️  This action cannot be undone!")
+    QString message = QString("Permanently delete '%1'?\n\n  This action cannot be undone!")
                      .arg(filename);
     
     QMessageBox::StandardButton reply = QMessageBox::warning(

@@ -379,7 +379,7 @@ CMakeFiles/AntivirusUSB.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidgetItem \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
@@ -397,6 +397,16 @@ CMakeFiles/AntivirusUSB.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QThread \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qthread.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdeadlinetimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h \
+ /usr/include/c++/13/future /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/c++/13/condition_variable \
+ /usr/include/c++/13/bits/atomic_futex.h \
+ /usr/include/c++/13/bits/std_thread.h \
  /home/kristina/antivirus-usb/src/ui/../usecases/IVirusScanner.h \
  /home/kristina/antivirus-usb/src/ui/../usecases/../entities/ScanResult.h \
  /home/kristina/antivirus-usb/src/ui/../usecases/VirusScanner.h \
@@ -420,5 +430,4 @@ CMakeFiles/AntivirusUSB.dir/src/main.cpp.o: \
  /home/kristina/antivirus-usb/src/usecases/UsbMonitor.h \
  /usr/include/libudev.h /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
  /usr/include/x86_64-linux-gnu/bits/sysmacros.h \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h
+ /usr/include/c++/13/thread /usr/include/c++/13/bits/this_thread_sleep.h
