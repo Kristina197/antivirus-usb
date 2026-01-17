@@ -1,18 +1,17 @@
 #include "SignatureRepository.h"
 #include "../infrastructure/SqlQueryLoader.h"
+
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QVariant>
 #include <QDebug>
 #include <iostream>
+#include <sstream>
 
 SignatureRepository::SignatureRepository(QSqlDatabase& db) : db_(db) {}
 
 std::vector<Signature> SignatureRepository::getAllSignatures() {
     std::vector<Signature> signatures;
-    
-    std::cout << "🔍 SignatureRepository::getAllSignatures() called" << std::endl;
-    
+
     QString sql = R"(
         SELECT 
             v.signature_id,
@@ -25,33 +24,22 @@ std::vector<Signature> SignatureRepository::getAllSignatures() {
         INNER JOIN signature_hashes h ON v.signature_id = h.signature_id
         ORDER BY v.virus_name
     )";
-    
+
     QSqlQuery query(db_);
     if (!query.exec(sql)) {
-        std::cerr << "Failed to get signatures: " 
-                  << query.lastError().text().toStdString() << std::endl;
+        qCritical() << "Не удалось загрузить сигнатуры:" << query.lastError().text();
         return signatures;
     }
-    
-    int count = 0;
+
     while (query.next()) {
         Signature sig;
         sig.virusName = query.value(1).toString().toStdString();
         sig.signatureHash = query.value(2).toString().toStdString();
         sig.fileOffset = query.value(3).toUInt();
         sig.signatureLength = query.value(4).toUInt();
-        
-        std::cout << "  Loaded: " << sig.virusName 
-                  << " | Hash: " << sig.signatureHash.substr(0, 8) << "..." 
-                  << " | Offset: " << sig.fileOffset 
-                  << " | Length: " << sig.signatureLength << std::endl;
-        
         signatures.push_back(sig);
-        count++;
     }
-    
-    std::cout << "Total signatures loaded: " << count << std::endl;
-    
+
     return signatures;
 }
 
@@ -62,16 +50,16 @@ bool SignatureRepository::findByHash(const std::string& hash, Signature& outSign
         INNER JOIN signature_hashes h ON v.signature_id = h.signature_id
         WHERE h.hash_value = ?
     )";
-    
+
     QSqlQuery query(db_);
     query.prepare(sql);
     query.addBindValue(QString::fromStdString(hash));
-    
+
     if (!query.exec()) {
-        std::cerr << "FindByHash failed: " << query.lastError().text().toStdString() << std::endl;
+        qCritical() << "Ошибка поиска по хешу:" << query.lastError().text();
         return false;
     }
-    
+
     if (query.next()) {
         outSignature.virusName = query.value(0).toString().toStdString();
         outSignature.signatureHash = hash;
@@ -79,38 +67,38 @@ bool SignatureRepository::findByHash(const std::string& hash, Signature& outSign
         outSignature.signatureLength = query.value(3).toUInt();
         return true;
     }
-    
+
     return false;
 }
 
-bool SignatureRepository::addSignature(const std::string& virusName, 
+bool SignatureRepository::addSignature(const std::string& virusName,
                                       const std::string& hash,
-                                      uint32_t offset, 
-                                      uint32_t length, 
+                                      uint32_t offset,
+                                      uint32_t length,
                                       int threatLevel) {
     if (virusName.empty() || hash.empty() || hash.length() != 32) {
-        qWarning() << "Invalid signature data";
+        qWarning() << "Некорректные данные сигнатуры";
         return false;
     }
-    
+
     if (threatLevel < 1 || threatLevel > 10) {
-        qWarning() << "Invalid threat level";
+        qWarning() << "Некорректный уровень угрозы";
         return false;
     }
-    
+
     db_.transaction();
-    
+
     QSqlQuery query(db_);
     query.prepare("INSERT OR IGNORE INTO virus_signatures (virus_name, threat_level) VALUES (?, ?)");
     query.addBindValue(QString::fromStdString(virusName));
     query.addBindValue(threatLevel);
-    
+
     if (!query.exec()) {
         db_.rollback();
-        qCritical() << "Failed to add signature: " << query.lastError().text();
+        qCritical() << "Не удалось добавить сигнатуру:" << query.lastError().text();
         return false;
     }
-    
+
     int signatureId = query.lastInsertId().toInt();
     if (signatureId == 0) {
         query.prepare("SELECT signature_id FROM virus_signatures WHERE virus_name = ?");
@@ -119,20 +107,18 @@ bool SignatureRepository::addSignature(const std::string& virusName,
             signatureId = query.value(0).toInt();
         }
     }
-    
-    query.prepare("INSERT INTO signature_hashes (signature_id, hash_value, file_offset, signature_length) VALUES (?, ?, ?, ?)");
+
+    query.prepare("INSERT OR IGNORE INTO signature_hashes (signature_id, hash_value, file_offset, signature_length) VALUES (?, ?, ?, ?)");
     query.addBindValue(signatureId);
     query.addBindValue(QString::fromStdString(hash));
     query.addBindValue(offset);
     query.addBindValue(length);
-    
+
     if (!query.exec()) {
         db_.rollback();
-        qCritical() << "Failed to add hash: " << query.lastError().text();
         return false;
     }
-    
+
     db_.commit();
-    std::cout << "Added signature: " << virusName << std::endl;
     return true;
 }

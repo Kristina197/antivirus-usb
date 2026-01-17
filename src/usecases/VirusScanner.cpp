@@ -1,15 +1,16 @@
 #include "VirusScanner.h"
+
 #include <iostream>
 #include <fstream>
-#include <iomanip>
 #include <sstream>
-#include <filesystem>
+#include <iomanip>
 #include <openssl/evp.h>
+#include <filesystem>
 
 namespace fs = std::filesystem;
 
 VirusScanner::VirusScanner(std::shared_ptr<ISignatureRepository> signatureRepo,
-                           std::shared_ptr<QuarantineManager> quarantineManager)
+                         std::shared_ptr<QuarantineManager> quarantineManager)
     : signatureRepo_(signatureRepo), quarantineManager_(quarantineManager) {}
 
 void VirusScanner::scanDirectory(const std::string& path, std::vector<ScanResult>& results) {
@@ -42,58 +43,42 @@ void VirusScanner::scanDirectoryRecursive(const std::string& path, std::vector<S
                     scanDirectoryRecursive(entry.path().string(), results, currentDepth + 1);
                 }
             } catch (const std::exception& e) {
-                std::cerr << "Error processing entry: " << e.what() << std::endl;
+                std::cerr << "Ошибка обработки файла: " << e.what() << std::endl;
             }
         }
     } catch (const std::exception& e) {
-        std::cerr << "Error scanning directory: " << e.what() << std::endl;
+        std::cerr << "Ошибка сканирования директории: " << e.what() << std::endl;
     }
 }
 
 bool VirusScanner::scanFile(const std::string& filePath, std::vector<ScanResult>& results) {
     std::vector<Signature> signatures = signatureRepo_->getAllSignatures();
-    
-    std::cout << "Scanning file: " << filePath << std::endl;
-    std::cout << "Signatures available: " << signatures.size() << std::endl;
-    
+
     for (const auto& sig : signatures) {
-        std::cout << "   Checking signature: " << sig.virusName 
-                  << " (hash: " << sig.signatureHash.substr(0, 8) << "...)" << std::endl;
-        
         if (sig.signatureLength == 0) {
-            std::cout << "Skipping - signatureLength is 0" << std::endl;
             continue;
         }
-        
+
         std::string hash = calculateMD5(filePath, sig.fileOffset, sig.signatureLength);
-        std::cout << "File hash: " << hash.substr(0, 8) << "..." << std::endl;
-        std::cout << "Expected : " << sig.signatureHash.substr(0, 8) << "..." << std::endl;
-        
         if (hash == sig.signatureHash) {
             ScanResult result(filePath, true, sig.virusName);
             results.push_back(result);
-            
-            std::cout << "VIRUS DETECTED: " << sig.virusName 
-                      << " in file: " << filePath << std::endl;
-            
             return true;
         }
     }
-    
+
     return false;
 }
 
 bool VirusScanner::checkFileSignature(const std::string& filePath, const std::string& hash,
                                      std::vector<ScanResult>& results) {
     std::vector<Signature> signatures = signatureRepo_->getAllSignatures();
-    
     for (const auto& sig : signatures) {
         if (sig.signatureHash == hash) {
             results.push_back(ScanResult(filePath, true, sig.virusName));
             return true;
         }
     }
-    
     return false;
 }
 
