@@ -1,5 +1,4 @@
 #include "UsbMonitor.h"
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -11,13 +10,13 @@
 UsbMonitor::UsbMonitor() : udev_(nullptr), monitor_(nullptr), running_(false) {
     udev_ = udev_new();
     if (!udev_) {
-        std::cerr << "Не удалось создать контекст udev" << std::endl;
+        std::cerr << "Failed to create udev context" << std::endl;
         return;
     }
 
     monitor_ = udev_monitor_new_from_netlink(udev_, "udev");
     if (!monitor_) {
-        std::cerr << "Не удалось создать монитор udev" << std::endl;
+        std::cerr << "Failed to create udev monitor" << std::endl;
         return;
     }
 
@@ -27,17 +26,12 @@ UsbMonitor::UsbMonitor() : udev_(nullptr), monitor_(nullptr), running_(false) {
 
 UsbMonitor::~UsbMonitor() {
     stopMonitoring();
-    if (monitor_) {
-        udev_monitor_unref(monitor_);
-    }
-    if (udev_) {
-        udev_unref(udev_);
-    }
+    if (monitor_) udev_monitor_unref(monitor_);
+    if (udev_) udev_unref(udev_);
 }
 
 void UsbMonitor::startMonitoring() {
     if (running_) return;
-
     running_ = true;
     scanExistingDevices();
     monitorThread_ = std::thread(&UsbMonitor::monitorLoop, this);
@@ -45,7 +39,6 @@ void UsbMonitor::startMonitoring() {
 
 void UsbMonitor::stopMonitoring() {
     if (!running_) return;
-
     running_ = false;
     if (monitorThread_.joinable()) {
         monitorThread_.join();
@@ -55,7 +48,7 @@ void UsbMonitor::stopMonitoring() {
 std::string UsbMonitor::getMountPoint(const std::string& devicePath) {
     FILE* mountsFile = setmntent("/proc/mounts", "r");
     if (!mountsFile) {
-        std::cerr << "Не удалось открыть /proc/mounts" << std::endl;
+        std::cerr << "Failed to open /proc/mounts" << std::endl;
         return "";
     }
 
@@ -67,7 +60,7 @@ std::string UsbMonitor::getMountPoint(const std::string& devicePath) {
             mountPoint = entry->mnt_dir;
             break;
         }
-
+        
         if (devicePath.find(entry->mnt_fsname) != std::string::npos ||
             std::string(entry->mnt_fsname).find(devicePath) != std::string::npos) {
             mountPoint = entry->mnt_dir;
@@ -82,21 +75,25 @@ std::string UsbMonitor::getMountPoint(const std::string& devicePath) {
 void UsbMonitor::scanExistingDevices() {
     std::ifstream mounts("/proc/mounts");
     std::string line;
-
+    
     while (std::getline(mounts, line)) {
         if (line.find("/media/") != std::string::npos || line.find("/mnt/") != std::string::npos) {
             std::istringstream iss(line);
             std::string device, mountPoint;
             iss >> device >> mountPoint;
-
-            if (device.find("/dev/sd") != std::string::npos && device != "/dev/sda" && device != "/dev/sda1") {
+            
+            if (device.find("/dev/sd") != std::string::npos && 
+                device != "/dev/sda" && device != "/dev/sda1") {
+                
                 DeviceInfo info;
-                size_t lastSlash = mountPoint.find_last_of("/");
-                std::string volumeLabel = (lastSlash != std::string::npos) ? mountPoint.substr(lastSlash + 1) : device;
+                size_t lastSlash = mountPoint.find_last_of('/');
+                std::string volumeLabel = (lastSlash != std::string::npos) 
+                    ? mountPoint.substr(lastSlash + 1) : device;
+                
                 info.deviceName = volumeLabel.empty() ? device : volumeLabel;
                 info.devicePath = device;
                 info.mountPoint = mountPoint;
-
+                
                 emit deviceConnected(info);
             }
         }
@@ -127,21 +124,28 @@ void UsbMonitor::monitorLoop() {
 
             if (action && devnode && id_bus && strcmp(id_bus, "usb") == 0) {
                 DeviceInfo device;
-                device.deviceName = devnode;
+                device.devicePath = devnode;
 
                 if (strcmp(action, "add") == 0) {
                     std::this_thread::sleep_for(std::chrono::seconds(1));
                     device.mountPoint = getMountPoint(devnode);
-
+                    
                     if (device.mountPoint.empty()) {
                         std::string partition = std::string(devnode) + "1";
                         device.mountPoint = getMountPoint(partition);
+                        device.devicePath = partition;
                     }
 
                     if (!device.mountPoint.empty()) {
+                        size_t lastSlash = device.mountPoint.find_last_of('/');
+                        std::string volumeLabel = (lastSlash != std::string::npos) 
+                            ? device.mountPoint.substr(lastSlash + 1) : devnode;
+                        device.deviceName = volumeLabel;
                         emit deviceConnected(device);
                     }
                 } else if (strcmp(action, "remove") == 0) {
+                    // ИСПРАВЛЕНО: передаем devicePath для правильного поиска
+                    device.deviceName = devnode;
                     device.mountPoint = "";
                     emit deviceDisconnected(device);
                 }

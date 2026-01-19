@@ -84,6 +84,16 @@ void MainWindow::setupResultsTable() {
 void MainWindow::onDeviceConnected(const DeviceInfo& device) {
     qDebug() << "Device connected:" << QString::fromStdString(device.deviceName);
 
+    // Проверка на дубликаты
+    for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
+        QTableWidgetItem* mountItem = ui->deviceTable->item(row, 1);
+        if (mountItem && mountItem->text().toStdString() == device.mountPoint) {
+            qDebug() << "Device already in table, skipping";
+            return;
+        }
+    }
+    
+
     int row = ui->deviceTable->rowCount();
     ui->deviceTable->insertRow(row);
     ui->deviceTable->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(device.deviceName)));
@@ -112,18 +122,32 @@ void MainWindow::onDeviceConnected(const DeviceInfo& device) {
 }
 
 void MainWindow::onDeviceDisconnected(const DeviceInfo& device) {
-    qDebug() << "Device disconnected:" << QString::fromStdString(device.deviceName);
-
-    for (int row = 0; row < ui->deviceTable->rowCount(); ++row) {
-        QTableWidgetItem* deviceItem = ui->deviceTable->item(row, 0);
-        if (deviceItem && deviceItem->text().toStdString() == device.deviceName) {
-            ui->deviceTable->removeRow(row);
+    qDebug() << "Device disconnected:" << QString::fromStdString(device.devicePath);
+    
+    // Ищем устройство в векторе connectedDevices_ по devicePath
+    int foundRow = -1;
+    for (size_t i = 0; i < connectedDevices_.size(); ++i) {
+        // Проверяем совпадение по devicePath (например /dev/sdb)
+        if (connectedDevices_[i].devicePath == device.devicePath ||
+            connectedDevices_[i].devicePath.find(device.devicePath) != std::string::npos ||
+            device.devicePath.find(connectedDevices_[i].devicePath) != std::string::npos) {
+            foundRow = i;
+            qDebug() << "Found device in vector at position" << i;
             break;
         }
     }
-
-    ui->statusLabel->setText(QString("USB устройство отключено: %1").arg(QString::fromStdString(device.deviceName)));
+    
+    if (foundRow >= 0 && foundRow < ui->deviceTable->rowCount()) {
+        qDebug() << "Removing device from table at row" << foundRow;
+        ui->deviceTable->removeRow(foundRow);
+        connectedDevices_.erase(connectedDevices_.begin() + foundRow);
+    } else {
+        qDebug() << "Device not found in table";
+    }
+    
+    ui->statusLabel->setText(QString("USB устройство отключено: %1").arg(QString::fromStdString(device.devicePath)));
 }
+
 
 void MainWindow::onScanButtonClicked() {
     int currentRow = ui->deviceTable->currentRow();
@@ -144,7 +168,8 @@ void MainWindow::onQuarantineButtonClicked() {
 }
 
 void MainWindow::onSettingsButtonClicked() {
-    SettingsDialog dialog(scanner_->getScanConfig(), this);
+    ScanConfig config = scanner_->getScanConfig();
+    SettingsDialog dialog(config, this);
     if (dialog.exec() == QDialog::Accepted) {
         ui->statusLabel->setText("Настройки сканирования обновлены");
     }
@@ -171,8 +196,8 @@ void MainWindow::scanDevice(const DeviceInfo& device) {
 
     connect(scanThread_, &QThread::started, worker, &ScanWorker::doScan);
     connect(worker, &ScanWorker::scanFinished, this,
-            [this, device](const std::vector<ScanResult>& results) {
-                onScanFinished(device, results);
+            [this, device](const std::vector<ScanResult>& results, int totalFiles) {
+                onScanFinished(device, results, totalFiles);
             });
     connect(worker, &ScanWorker::scanFinished, scanThread_, &QThread::quit);
     connect(scanThread_, &QThread::finished, worker, &QObject::deleteLater);
@@ -181,12 +206,11 @@ void MainWindow::scanDevice(const DeviceInfo& device) {
     scanThread_->start();
 }
 
-void MainWindow::onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results) {
+void MainWindow::onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results, int totalFiles) {
     ui->progressBar->setVisible(false);
     ui->scanButton->setEnabled(true);
 
     int threatsFound = 0;
-    int totalFiles = results.size();
     std::vector<ScanResult> infectedFiles;
 
     for (const auto& result : results) {

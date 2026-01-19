@@ -1,5 +1,4 @@
 #include "VirusScanner.h"
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -10,25 +9,21 @@
 namespace fs = std::filesystem;
 
 VirusScanner::VirusScanner(std::shared_ptr<ISignatureRepository> signatureRepo,
-                         std::shared_ptr<QuarantineManager> quarantineManager)
+                           std::shared_ptr<QuarantineManager> quarantineManager)
     : signatureRepo_(signatureRepo), quarantineManager_(quarantineManager) {}
 
-void VirusScanner::scanDirectory(const std::string& path, std::vector<ScanResult>& results) {
-    scanDirectoryRecursive(path, results, 0);
+void VirusScanner::scanDirectory(const std::string& path, std::vector<ScanResult>& results, int& totalFiles) {
+    totalFiles = 0;
+    scanDirectoryRecursive(path, results, totalFiles, 0);
 }
 
-void VirusScanner::scanDirectoryRecursive(const std::string& path, std::vector<ScanResult>& results, int currentDepth) {
+void VirusScanner::scanDirectoryRecursive(const std::string& path, std::vector<ScanResult>& results, int& totalFiles, int currentDepth) {
     try {
-        if (currentDepth >= config_.maxDepth) {
-            return;
-        }
-
-        if (!fs::exists(path) || !fs::is_directory(path)) {
-            return;
-        }
+        if (currentDepth > config.maxDepth) return;
+        if (!fs::exists(path) || !fs::is_directory(path)) return;
 
         auto dirOptions = fs::directory_options::skip_permission_denied;
-        if (config_.followSymlinks) {
+        if (config.followSymlinks) {
             dirOptions = dirOptions | fs::directory_options::follow_directory_symlink;
         }
 
@@ -36,29 +31,28 @@ void VirusScanner::scanDirectoryRecursive(const std::string& path, std::vector<S
             try {
                 if (entry.is_regular_file()) {
                     std::string filePath = entry.path().string();
-                    if (config_.shouldScanFile(filePath)) {
+                    if (config.shouldScanFile(filePath)) {
+                        totalFiles++;
                         scanFile(filePath, results);
                     }
                 } else if (entry.is_directory()) {
-                    scanDirectoryRecursive(entry.path().string(), results, currentDepth + 1);
+                    scanDirectoryRecursive(entry.path().string(), results, totalFiles, currentDepth + 1);
                 }
             } catch (const std::exception& e) {
-                std::cerr << "Ошибка обработки файла: " << e.what() << std::endl;
+                std::cerr << e.what() << std::endl;
             }
         }
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка сканирования директории: " << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 }
 
 bool VirusScanner::scanFile(const std::string& filePath, std::vector<ScanResult>& results) {
     std::vector<Signature> signatures = signatureRepo_->getAllSignatures();
-
+    
     for (const auto& sig : signatures) {
-        if (sig.signatureLength == 0) {
-            continue;
-        }
-
+        if (sig.signatureLength == 0) continue;
+        
         std::string hash = calculateMD5(filePath, sig.fileOffset, sig.signatureLength);
         if (hash == sig.signatureHash) {
             ScanResult result(filePath, true, sig.virusName);
@@ -66,19 +60,20 @@ bool VirusScanner::scanFile(const std::string& filePath, std::vector<ScanResult>
             return true;
         }
     }
-
+    
     return false;
 }
 
-bool VirusScanner::checkFileSignature(const std::string& filePath, const std::string& hash,
-                                     std::vector<ScanResult>& results) {
+bool VirusScanner::checkFileSignature(const std::string& filePath, const std::string& hash, std::vector<ScanResult>& results) {
     std::vector<Signature> signatures = signatureRepo_->getAllSignatures();
+    
     for (const auto& sig : signatures) {
         if (sig.signatureHash == hash) {
             results.push_back(ScanResult(filePath, true, sig.virusName));
             return true;
         }
     }
+    
     return false;
 }
 
@@ -91,11 +86,11 @@ std::string VirusScanner::calculateMD5(const std::string& filePath, uint32_t off
     file.seekg(0, std::ios::beg);
 
     if (offset >= fileSize) return "";
-
     file.seekg(offset);
-    uint32_t readLength = std::min(length, static_cast<uint32_t>(fileSize - offset));
 
+    uint32_t readLength = std::min(length, static_cast<uint32_t>(fileSize - offset));
     std::vector<char> buffer(readLength);
+    
     if (!file.read(buffer.data(), readLength)) return "";
 
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();

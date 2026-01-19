@@ -34,7 +34,7 @@ private slots:
     void onScanButtonClicked();
     void onQuarantineButtonClicked();
     void onSettingsButtonClicked();
-    void onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results);
+    void onScanFinished(const DeviceInfo& device, const std::vector<ScanResult>& results, int totalFiles);
     void showThreatSummary(int threatsFound, int totalFiles);
     void handleInfectedFile(const QString& filePath, const QString& virusName);
 

@@ -1,8 +1,0 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
-<qresource prefix="/">
-    <file>resources/icon.png</file>
-    <file>resources/shield-clean.jpg</file>
-    <file>resources/shield-infected.jpg</file>
-</qresource>
-</RCC>

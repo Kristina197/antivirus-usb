@@ -12,8 +12,9 @@ struct ScanConfig {
     ScanConfig() {
         allowedExtensions = {
             ".exe", ".dll", ".so", ".bin", ".sh",
-            ".doc", ".docx", ".xls", ".xlsx", ".pdf",
-            ".zip", ".rar", ".tar", ".gz", ".7z"
+            ".doc", ".docx", ".xls", ".xlsx", 
+            ".pdf", ".zip", ".rar", ".tar", ".gz", ".7z",
+            ".txt"  // <- Добавили .txt
         };
     }
     

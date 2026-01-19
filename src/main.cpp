@@ -48,7 +48,8 @@ int autoScanMode(const QString& scanPath) {
     
     int threatsFound = 0;
     std::vector<ScanResult> results;
-    scanner->scanDirectory(scanPath.toStdString(), results);
+    int totalFiles = 0;
+    scanner->scanDirectory(scanPath.toStdString(), results, totalFiles);
     
     std::cout << "\n=== SCAN RESULTS ===" << std::endl;
     std::cout << "Files scanned: " << results.size() << std::endl;
