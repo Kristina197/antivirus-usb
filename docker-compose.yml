@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  antivirus-usb:
+    build: .
+    image: antivirus-usb:latest
+    container_name: antivirus-usb
+    privileged: true
+    volumes:
+      - /dev:/dev
+      - /run/udev:/run/udev:ro
+      - ./quarantine:/app/quarantine
+      - antivirus-data:/root/.local/share/antivirus-usb
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${HOME}/.Xauthority:/root/.Xauthority:ro
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - LANG=ru_RU.UTF-8
+      - LANGUAGE=ru_RU:ru
+      - LC_ALL=ru_RU.UTF-8
+      - QT_QPA_PLATFORMTHEME=gtk3
+      - QT_STYLE_OVERRIDE=Fusion
+      - XCURSOR_SIZE=24
+      - XCURSOR_THEME=Adwaita
+    network_mode: host
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    stdin_open: true
+    tty: true
+
+volumes:
+  antivirus-data:

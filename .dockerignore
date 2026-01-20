@@ -1,0 +1,12 @@
+build/
+.git/
+*.backup
+*.orig
+*~
+.vscode/
+.idea/
+*.swp
+*.swo
+*.db-shm
+*.db-wal
+test_viruses/
