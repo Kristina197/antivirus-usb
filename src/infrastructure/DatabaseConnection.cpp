@@ -1,49 +1,85 @@
 #include "DatabaseConnection.h"
 #include "SqlQueryLoader.h"
-#include <QFile>
-#include <QDebug>
-#include <QDir>
 #include <QSqlError>
 #include <QSqlQuery>
-#include <QStandardPaths>
+#include <QDebug>
+#include <QFile>
+#include <QDir>
 
 DatabaseConnection::DatabaseConnection() {
-    db_ = QSqlDatabase::addDatabase("QSQLITE");
-
-    QString dbPath = QDir::homePath() + "/.local/share/antivirus-usb/antivirus.db";
-    
-    QDir dbDir = QFileInfo(dbPath).absoluteDir();
-    if (!dbDir.exists()) {
-        dbDir.mkpath(".");
+    if (!initializeConnection()) {
+        qCritical() << "Failed to initialize database connection";
     }
-    
-    db_.setDatabaseName(dbPath);
-    
-    if (!db_.open()) {
-        qCritical() << "Failed to open database:" << db_.lastError().text();
-        return;
-    }
-    
-    QSqlQuery query(db_);
-    query.exec("PRAGMA foreign_keys = ON");
-    query.exec("PRAGMA journal_mode = WAL");
-    
-    qDebug() << "Database opened successfully at:" << dbPath;
-    
-    QString sqlBasePath = QDir::homePath() + "/antivirus-usb/sql/";
-    
-    auto& queryLoader = SqlQueryLoader::getInstance();
-    if (!queryLoader.executeSchemaFile(db_, sqlBasePath + "schema.sql")) {
-        qCritical() << "Failed to initialize database schema";
-        return;
-    }
-    
-    queryLoader.loadQueriesFromFile(sqlBasePath + "signature_queries.sql");
-    queryLoader.loadQueriesFromFile(sqlBasePath + "device_queries.sql");
-    
-    qDebug() << "Database initialized with schema and queries";
 }
 
-QSqlDatabase DatabaseConnection::getDatabase() const {
+DatabaseConnection::~DatabaseConnection() {
+    if (db_.isOpen()) {
+        db_.close();
+    }
+}
+
+bool DatabaseConnection::initializeConnection() {
+    if (!QSqlDatabase::isDriverAvailable(DB_DRIVER)) {
+        qCritical() << "PostgreSQL driver not available!";
+        qCritical() << "Available drivers:" << QSqlDatabase::drivers();
+        return false;
+    }
+    
+    db_ = QSqlDatabase::addDatabase(DB_DRIVER);
+    db_.setHostName(DB_HOST);
+    db_.setDatabaseName(DB_NAME);
+    db_.setUserName(DB_USER);
+    db_.setPassword(DB_PASSWORD);
+    db_.setPort(DB_PORT);
+    
+    if (!db_.open()) {
+        qCritical() << "Failed to connect to PostgreSQL:";
+        qCritical() << db_.lastError().text();
+        qCritical() << "Host:" << DB_HOST;
+        qCritical() << "Database:" << DB_NAME;
+        qCritical() << "User:" << DB_USER;
+        return false;
+    }
+    
+    qDebug() << "Connected to PostgreSQL database:" << DB_NAME;
+    
+    QSqlQuery query(db_);
+    query.exec("SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'virus_signatures'");
+    
+    if (query.next() && query.value(0).toInt() == 0) {
+        qDebug() << "Tables not found, creating schema...";
+        if (!createSchema()) {
+            qCritical() << "Failed to create schema";
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+bool DatabaseConnection::createSchema() {
+    SqlQueryLoader& loader = SqlQueryLoader::getInstance();
+    
+    QString schemaPath = "sql/schema_postgresql.sql";
+    
+    if (!QFile::exists(schemaPath)) {
+        qCritical() << "Schema file not found:" << schemaPath;
+        return false;
+    }
+    
+    if (!loader.executeSchemaFile(db_, schemaPath)) {
+        qCritical() << "Failed to execute schema";
+        return false;
+    }
+    
+    qDebug() << "Database schema created successfully";
+    return true;
+}
+
+QSqlDatabase& DatabaseConnection::getDatabase() {
     return db_;
+}
+
+bool DatabaseConnection::isConnected() const {
+    return db_.isOpen();
 }

@@ -10,6 +10,37 @@ SqlQueryLoader& SqlQueryLoader::getInstance() {
     return instance;
 }
 
+QString SqlQueryLoader::loadSingleQuery(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Failed to open query file:" << filePath;
+        return QString();
+    }
+    
+    QTextStream in(&file);
+    QString query;
+    
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QString trimmed = line.trimmed();
+        
+        if (trimmed.startsWith("--")) {
+            continue;
+        }
+        
+        if (!trimmed.isEmpty()) {
+            query += trimmed + " ";
+        }
+    }
+    
+    file.close();
+    
+    QString result = query.trimmed();
+    qDebug() << "Loaded query from" << filePath << "(" << result.length() << "bytes)";
+    
+    return result;
+}
+
 bool SqlQueryLoader::loadQueriesFromFile(const QString& filePath) {
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -44,28 +75,6 @@ bool SqlQueryLoader::loadQueriesFromFile(const QString& filePath) {
     return true;
 }
 
-QString SqlQueryLoader::loadSingleQuery(const QString& filePath) {
-    QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qWarning() << "Failed to open query file:" << filePath;
-        return QString();
-    }
-    
-    QTextStream in(&file);
-    QString query;
-    
-    while (!in.atEnd()) {
-        QString line = in.readLine().trimmed();
-        // Пропускаем комментарии
-        if (!line.startsWith("--") && !line.isEmpty()) {
-            query += line + " ";
-        }
-    }
-    
-    file.close();
-    return query.trimmed();
-}
-
 QString SqlQueryLoader::getQuery(const QString& queryName) const {
     return queries_.value(queryName);
 }
@@ -90,7 +99,6 @@ bool SqlQueryLoader::executeSchemaFile(QSqlDatabase& db, const QString& filePath
         QSqlQuery query(db);
         if (!query.exec(trimmed)) {
             qWarning() << "Failed to execute statement:" << query.lastError().text();
-            qWarning() << "Statement:" << trimmed;
             return false;
         }
     }

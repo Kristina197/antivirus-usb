@@ -4,6 +4,7 @@
 #include <QSqlError>
 #include <QVariant>
 #include <QDebug>
+#include <QCoreApplication>
 
 SignatureRepository::SignatureRepository(QSqlDatabase& database)
     : db(database) {
@@ -13,20 +14,25 @@ SignatureRepository::SignatureRepository(QSqlDatabase& database)
 void SignatureRepository::loadQueries() {
     SqlQueryLoader& loader = SqlQueryLoader::getInstance();
     
-    // Загружаем каждый SQL запрос из отдельного файла
-    sqlGetAll = loader.loadSingleQuery("sql/queries/get_all_signatures.sql");
-    sqlInsertVirus = loader.loadSingleQuery("sql/queries/insert_virus_signature.sql");
-    sqlGetSignatureId = loader.loadSingleQuery("sql/queries/get_signature_id.sql");
-    sqlInsertHash = loader.loadSingleQuery("sql/queries/insert_signature_hash.sql");
+    QString basePath = QCoreApplication::applicationDirPath() + "/../";
     
-    qDebug() << "SQL queries loaded from files";
+    sqlGetAll = loader.loadSingleQuery(basePath + "sql/queries/get_all_signatures.sql");
+    sqlInsertVirus = loader.loadSingleQuery(basePath + "sql/queries/insert_virus_signature.sql");
+    sqlGetSignatureId = loader.loadSingleQuery(basePath + "sql/queries/get_signature_id.sql");
+    sqlInsertHash = loader.loadSingleQuery(basePath + "sql/queries/insert_signature_hash.sql");
+    
+    qDebug() << "SQL queries loaded, GetAll length:" << sqlGetAll.length();
 }
 
 std::vector<Signature> SignatureRepository::getAllSignatures() {
     std::vector<Signature> signatures;
     QSqlQuery query(db);
     
-    // Используем SQL из файла
+    if (sqlGetAll.isEmpty()) {
+        qCritical() << "SQL query is empty";
+        return signatures;
+    }
+    
     if (!query.exec(sqlGetAll)) {
         qWarning() << "Failed to get signatures:" << query.lastError().text();
         return signatures;
@@ -34,10 +40,10 @@ std::vector<Signature> SignatureRepository::getAllSignatures() {
     
     while (query.next()) {
         Signature sig;
-        sig.virusName = query.value(0).toString().toStdString();          // virus_name
-        sig.signatureHash = query.value(1).toString().toStdString();      // hash_value
-        sig.fileOffset = query.value(2).toUInt();                         // file_offset
-        sig.signatureLength = query.value(3).toUInt();                    // signature_length
+        sig.virusName = query.value(0).toString().toStdString();
+        sig.signatureHash = query.value(1).toString().toStdString();
+        sig.fileOffset = query.value(2).toUInt();
+        sig.signatureLength = query.value(3).toUInt();
         signatures.push_back(sig);
     }
     
@@ -52,19 +58,17 @@ bool SignatureRepository::addSignature(const std::string& name,
                                        int threatLevel) {
     QSqlQuery query(db);
     
-    // 1. Вставляем информацию о вирусе (SQL из файла)
     query.prepare(sqlInsertVirus);
-    query.addBindValue(QString::fromStdString(name));
-    query.addBindValue(threatLevel == 1 ? "high" : "medium");
+    query.bindValue(0, QString::fromStdString(name));
+    query.bindValue(1, threatLevel == 1 ? "high" : "medium");
     
     if (!query.exec()) {
         qWarning() << "Failed to insert virus:" << query.lastError().text();
         return false;
     }
     
-    // 2. Получаем ID сигнатуры (SQL из файла)
     query.prepare(sqlGetSignatureId);
-    query.addBindValue(QString::fromStdString(name));
+    query.bindValue(0, QString::fromStdString(name));
     
     if (!query.exec() || !query.next()) {
         qWarning() << "Failed to get signature ID:" << query.lastError().text();
@@ -73,12 +77,11 @@ bool SignatureRepository::addSignature(const std::string& name,
     
     int signatureId = query.value(0).toInt();
     
-    // 3. Вставляем хеш (SQL из файла)
     query.prepare(sqlInsertHash);
-    query.addBindValue(signatureId);
-    query.addBindValue(QString::fromStdString(md5Hash));
-    query.addBindValue(fileOffset);
-    query.addBindValue(patternSize);
+    query.bindValue(0, signatureId);
+    query.bindValue(1, QString::fromStdString(md5Hash));
+    query.bindValue(2, fileOffset);
+    query.bindValue(3, patternSize);
     
     if (!query.exec()) {
         qWarning() << "Failed to insert hash:" << query.lastError().text();
