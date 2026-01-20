@@ -1,22 +1,34 @@
-#pragma once
+#ifndef SIGNATUREREPOSITORY_H
+#define SIGNATUREREPOSITORY_H
+
 #include "../interfaces/ISignatureRepository.h"
 #include <QSqlDatabase>
-#include <memory>
+#include <QString>
 
 class SignatureRepository : public ISignatureRepository {
 public:
-    explicit SignatureRepository(QSqlDatabase& db);
+    explicit SignatureRepository(QSqlDatabase& database);
     
+    // Реализация интерфейса
     std::vector<Signature> getAllSignatures() override;
-    bool addSignature(const std::string& virusName, const std::string& hash, 
-                     uint32_t offset, uint32_t length, int threatLevel = 5);
-    bool findByHash(const std::string& hash, Signature& outSignature);
     
+    // Дополнительные методы
+    bool addSignature(const std::string& name, 
+                     const std::string& md5Hash,
+                     int fileOffset, 
+                     int patternSize,
+                     int threatLevel);
+
 private:
-    QSqlDatabase& db_;
+    QSqlDatabase& db;
     
-    struct PreparedStatements {
-        std::unique_ptr<QSqlQuery> getAllSignatures;
-        std::unique_ptr<QSqlQuery> findByHash;
-    };
+    // SQL запросы загружаются из файлов
+    QString sqlGetAll;
+    QString sqlInsertVirus;
+    QString sqlGetSignatureId;
+    QString sqlInsertHash;
+    
+    void loadQueries();
 };
+
+#endif // SIGNATUREREPOSITORY_H

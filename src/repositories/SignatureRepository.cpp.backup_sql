@@ -11,37 +11,31 @@ SignatureRepository::SignatureRepository(QSqlDatabase& database)
 }
 
 void SignatureRepository::loadQueries() {
-    SqlQueryLoader& loader = SqlQueryLoader::getInstance();
-    
-    // Загружаем каждый SQL запрос из отдельного файла
-    sqlGetAll = loader.loadSingleQuery("sql/queries/get_all_signatures.sql");
-    sqlInsertVirus = loader.loadSingleQuery("sql/queries/insert_virus_signature.sql");
-    sqlGetSignatureId = loader.loadSingleQuery("sql/queries/get_signature_id.sql");
-    sqlInsertHash = loader.loadSingleQuery("sql/queries/insert_signature_hash.sql");
-    
-    qDebug() << "SQL queries loaded from files";
+    SqlQueryLoader loader;
+    queries["insert_virus"] = loader.loadQuery("sql/queries/insert_virus_signature.sql");
+    queries["get_signature_id"] = loader.loadQuery("sql/queries/get_signature_id.sql");
+    queries["insert_hash"] = loader.loadQuery("sql/queries/insert_signature_hash.sql");
+    queries["get_all"] = loader.loadQuery("sql/queries/get_all_signatures.sql");
 }
 
 std::vector<Signature> SignatureRepository::getAllSignatures() {
     std::vector<Signature> signatures;
     QSqlQuery query(db);
     
-    // Используем SQL из файла
-    if (!query.exec(sqlGetAll)) {
+    if (!query.exec(queries["get_all"])) {
         qWarning() << "Failed to get signatures:" << query.lastError().text();
         return signatures;
     }
     
     while (query.next()) {
         Signature sig;
-        sig.virusName = query.value(0).toString().toStdString();          // virus_name
-        sig.signatureHash = query.value(1).toString().toStdString();      // hash_value
-        sig.fileOffset = query.value(2).toUInt();                         // file_offset
-        sig.signatureLength = query.value(3).toUInt();                    // signature_length
+        sig.name = query.value(0).toString().toStdString();
+        sig.md5Hash = query.value(1).toString().toStdString();
+        sig.fileOffset = query.value(2).toInt();
+        sig.patternSize = query.value(3).toInt();
         signatures.push_back(sig);
     }
     
-    qDebug() << "Loaded" << signatures.size() << "signatures from database";
     return signatures;
 }
 
@@ -52,18 +46,18 @@ bool SignatureRepository::addSignature(const std::string& name,
                                        int threatLevel) {
     QSqlQuery query(db);
     
-    // 1. Вставляем информацию о вирусе (SQL из файла)
-    query.prepare(sqlInsertVirus);
+    // Вставляем информацию о вирусе
+    query.prepare(queries["insert_virus"]);
     query.addBindValue(QString::fromStdString(name));
-    query.addBindValue(threatLevel == 1 ? "high" : "medium");
+    query.addBindValue(threatLevel);
     
     if (!query.exec()) {
         qWarning() << "Failed to insert virus:" << query.lastError().text();
         return false;
     }
     
-    // 2. Получаем ID сигнатуры (SQL из файла)
-    query.prepare(sqlGetSignatureId);
+    // Получаем ID вируса
+    query.prepare(queries["get_signature_id"]);
     query.addBindValue(QString::fromStdString(name));
     
     if (!query.exec() || !query.next()) {
@@ -73,8 +67,8 @@ bool SignatureRepository::addSignature(const std::string& name,
     
     int signatureId = query.value(0).toInt();
     
-    // 3. Вставляем хеш (SQL из файла)
-    query.prepare(sqlInsertHash);
+    // Вставляем хеш
+    query.prepare(queries["insert_hash"]);
     query.addBindValue(signatureId);
     query.addBindValue(QString::fromStdString(md5Hash));
     query.addBindValue(fileOffset);
@@ -85,6 +79,15 @@ bool SignatureRepository::addSignature(const std::string& name,
         return false;
     }
     
-    qDebug() << "Added signature:" << QString::fromStdString(name);
     return true;
+}
+
+bool SignatureRepository::updateSignature(int id, const Signature& signature) {
+    // TODO: Implement update logic
+    return false;
+}
+
+bool SignatureRepository::deleteSignature(int id) {
+    // TODO: Implement delete logic
+    return false;
 }

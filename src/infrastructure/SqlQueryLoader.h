@@ -11,6 +11,9 @@ public:
     QString getQuery(const QString& queryName) const;
     bool executeSchemaFile(QSqlDatabase& db, const QString& filePath);
     
+    // Новый метод: загрузить один запрос из файла
+    QString loadSingleQuery(const QString& filePath);
+    
 private:
     SqlQueryLoader() = default;
     QMap<QString, QString> queries_;
